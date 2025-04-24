@@ -1,5 +1,5 @@
 {
-  "name": "@repo/prettier-config",
+  "name": "@nx-utils/prettier-config",
   "version": "0.0.0",
   "main": "index.js",
   "license": "MIT",

@@ -1,13 +1,13 @@
-# @repo/prettier-config
+# @nx-utils/prettier-config
 
 共享的 Prettier 配置，用于在项目中保持一致的代码格式。
 
 ## 安装
 
 ```bash
-npm install --save-dev @repo/prettier-config prettier
+npm install --save-dev @nx-utils/prettier-config prettier
 # 或者
-pnpm add -D @repo/prettier-config prettier
+pnpm add -D @nx-utils/prettier-config prettier
 ```
 
 ## 使用方法
@@ -20,7 +20,7 @@ pnpm add -D @repo/prettier-config prettier
 
 ```json
 {
-  "prettier": "@repo/prettier-config"
+  "prettier": "@nx-utils/prettier-config"
 }
 ```
 
@@ -30,7 +30,7 @@ pnpm add -D @repo/prettier-config prettier
 
 ```js
 module.exports = {
-  ...require('@repo/prettier-config'),
+  ...require('@nx-utils/prettier-config'),
   // 在这里可以添加自定义配置来覆盖默认设置
   semi: true
 };

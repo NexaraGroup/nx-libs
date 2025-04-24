@@ -41,3 +41,6 @@ This Turborepo has some additional tools already setup for you:
 共享的工具包。针对 `libs` 来说，就是要被发布的单包。
 `eslint-config`、`typescript-config` 是最佳实践，属于这个项目的校验规则(可以不发布)。
 ~~`ui`，一层目录来定义 UI 组件，里面具体的发布后缀，可以在 `package.json` 单独定制。~~
+
+### peerDependencies
+目前看对于 `peerDependencies`，三大包管理器，趋同于如果版本（2、3位）不匹配发出警告，但是不打断暗转个，使用者来保证版本。

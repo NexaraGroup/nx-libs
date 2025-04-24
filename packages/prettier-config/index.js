@@ -1,5 +1,6 @@
 /**
- * @file Prettier 配置
+ * @file
+ * 有的时候，修改需要重启 IDE
  */
 
 module.exports = {
@@ -18,19 +19,19 @@ module.exports = {
   // 使用制表符缩进
   useTabs: true,
 
-  // 不使用分号
-  semi: false,
+  // 制表符宽度
+  tabWidth: 4,
 
-  // 箭头函数参数始终使用括号
-  arrowParens: "always",
+  // 行尾使用LF
+  endOfLine: "lf",
 
-  // 对象花括号内添加空格
-  bracketSpacing: true,
+  // 文件末尾插入空行
+  insertFinalNewline: true,
 
-  // 导入排序
+  // 导入排序规则
   importOrder: ["react", "<THIRD_PARTY_MODULES>", "^[./]"],
 
-  // 插件
+  // 使用的插件
   plugins: [
     "@ianvs/prettier-plugin-sort-imports",
     "prettier-plugin-packagejson",
