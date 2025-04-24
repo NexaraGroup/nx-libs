@@ -1,0 +1,17 @@
+{
+  "name": "@repo/prettier-config",
+  "version": "0.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@ianvs/prettier-plugin-sort-imports": "^4.2.3",
+    "prettier-plugin-packagejson": "^2.4.12"
+  },
+  "peerDependencies": {
+    "prettier": ">=3.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
