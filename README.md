@@ -30,3 +30,14 @@ This Turborepo has some additional tools already setup for you:
 - [TypeScript](https://www.typescriptlang.org/) for static type checking
 - [ESLint](https://eslint.org/) for code linting
 - [Prettier](https://prettier.io) for code formatting
+
+## Memo
+
+### 目录结构
+- apps
+多包项目中，可能存在的真实项目。如果针对 `libs` 的话，通常是放官网、项目文档类型的应用。
+
+- packages
+共享的工具包。针对 `libs` 来说，就是要被发布的单包。
+`eslint-config`、`typescript-config` 是最佳实践，属于这个项目的校验规则(可以不发布)。
+~~`ui`，一层目录来定义 UI 组件，里面具体的发布后缀，可以在 `package.json` 单独定制。~~
