@@ -1,6 +1,7 @@
 /**
  * @file
  * 有的时候，修改需要重启 IDE
+ * 导入顺序那块，是对应 @nx-utils/eslint-config/base 中的 import/order 规则
  */
 
 module.exports = {
@@ -28,12 +29,22 @@ module.exports = {
   // 文件末尾插入空行
   insertFinalNewline: true,
 
-  // 导入排序规则
-  importOrder: ["react", "<THIRD_PARTY_MODULES>", "^[./]"],
+  // 导入排序规则 - 与ESLint的import/order对应
+  importOrder: [
+    "^node:", // Node.js内置模块 (对应builtin)
+    "<THIRD_PARTY_MODULES>", // 外部依赖 (对应external)
+    "^@(/.*|$)", // 内部别名模块 (对应internal)
+    "^\\.\\.(/.*|$)", // 父目录模块 (对应parent)
+    "^\\./(?!index)", // 同级目录 (对应sibling)
+    "^\\./?index", // index文件 (对应index)
+  ],
+  importOrderSeparation: true, // 对应ESLint中的newlines-between: "always"
+  importOrderSortSpecifiers: true, // 对应按字母排序导入的命名导出
+  importOrderCaseInsensitive: true, // 对应ESLint中的caseInsensitive: true
 
   // 使用的插件
   plugins: [
-    "@ianvs/prettier-plugin-sort-imports",
+    "@trivago/prettier-plugin-sort-imports",
     "prettier-plugin-packagejson",
   ],
 };
