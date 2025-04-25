@@ -44,3 +44,26 @@ This Turborepo has some additional tools already setup for you:
 
 ### peerDependencies
 目前看对于 `peerDependencies`，三大包管理器，趋同于如果版本（2、3位）不匹配发出警告，但是不打断暗转个，使用者来保证版本。
+
+### eslint
+```
+parserOptions: {
+    ecmaVersion: "latest", // 这个校验语法
+    project: false, // 这个不用开，类型交给 ts 相关的东西去检查，不需要 eslint 来
+}
+env: {
+    esnext: true, // 这个校验 api
+},
+
+// plugin:import/typescript，最佳配置
+settings: {
+    "import/resolver": {
+        typescript: {
+            alwaysTryTypes: true, // 只需要引入类型的情况（虽然几乎不可能）
+        },
+        node: true, // nodejs 包，需要被识别导入的情况
+    },
+},
+```
+
+
