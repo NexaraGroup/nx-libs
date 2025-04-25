@@ -66,4 +66,18 @@ settings: {
 },
 ```
 
-
+### jsdoc 类型补全
+```
+xxx.cjs
+/** @type {import("eslint").Linter.Config} */
+module.exports = {
+  root: true,
+  ignorePatterns: [".eslintrc.cjs"],
+  extends: ["@repo/eslint-config/index.js"],
+  parser: "@typescript-eslint/parser",
+  parserOptions: {
+    project: true,
+  },
+};
+```
+上述的代码意思是：是 cjs 文件，不是 ts，但是，又想要在编辑器级别，能探测到类型，所以使用这种 jsdoc 的方式。是最佳实践，以后可以尝试。
