@@ -83,4 +83,10 @@ module.exports = {
 上述的代码意思是：是 cjs 文件，不是 ts，但是，又想要在编辑器级别，能探测到类型，所以使用这种 jsdoc 的方式。是最佳实践，以后可以尝试。
 
 ### tsconfig
-`"noEmit": true,`，目前都是配合第三方打包器，所以不需要 tsc 来产生实际 js 代码
+#### 主要是 typescript-config 过程中遇到的一些问题
+- `"noEmit": true,`，在工程项目的配置中，目前都是配合第三方打包器，所以不需要 tsc 来产生实际 js 代码，libs 则需要产生代码
+
+- `"declaration": true` - 生成 .d.ts 文件，tsc 会读这个配置。但是主流的打包工具都不会读这个配置。举例来说：`"build": "tsup src/index.ts --format esm,cjs --dts",`   tsup，需要显示的申明 --dts，而不会去读 declaration
+
+-  `"module": "NodeNext",` 这个有点类似于自动选择。如果是 *.mts，则输出成 mjs，符合 nodejs 规范，若果是 cjs ，则输出 mjs，如果单纯是 *.ts，则看 pkg.json 里的配置，默认是 commonjs 规则的 *.js 文件。但是现代的 libs 一般都是双格式输出。
+

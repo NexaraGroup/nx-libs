@@ -8,7 +8,7 @@ export interface FormatDateOptions {
   format?: string;
 }
 
-export const DEFAULT_DATE_OPTIONS: FormatDateOptions = {
+const DEFAULT_DATE_OPTIONS: FormatDateOptions = {
   format: "YYYY-MM-DD HH:mm:ss",
 };
 

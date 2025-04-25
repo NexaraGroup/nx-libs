@@ -14,7 +14,7 @@ export interface FormatNumberOptions {
   addThousandsSeparator?: boolean;
 }
 
-export const DEFAULT_NUMBER_OPTIONS: FormatNumberOptions = {
+const DEFAULT_NUMBER_OPTIONS: FormatNumberOptions = {
   removeTrailingZeros: true,
   addThousandsSeparator: true,
 };

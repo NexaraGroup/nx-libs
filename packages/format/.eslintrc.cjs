@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ["@repo/eslint-config"],
+  extends: ["@nx-utils/eslint-config/base"],
   parserOptions: {
     project: true,
   },
