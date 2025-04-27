@@ -7,7 +7,7 @@
       "outputs": ["dist/**"]
     },
     "lint": {},
-    "dev": {
+    "docs:dev": {
       "cache": false,
       "persistent": true
     }
