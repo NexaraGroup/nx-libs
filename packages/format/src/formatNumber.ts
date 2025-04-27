@@ -30,7 +30,8 @@ export function formatNumber(
   options: FormatNumberOptions = DEFAULT_NUMBER_OPTIONS,
 ): string {
   const mergedOptions = { ...DEFAULT_NUMBER_OPTIONS, ...options };
-  const { removeTrailingZeros, addThousandsSeparator } = mergedOptions;
+  const { removeTrailingZeros = true, addThousandsSeparator = true } =
+    mergedOptions;
 
   // 处理数字类型
   if (typeof value === "number") {

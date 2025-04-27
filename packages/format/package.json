@@ -29,7 +29,6 @@
   "devDependencies": {
     "@nx-utils/eslint-config": "workspace:*",
     "@nx-utils/typescript-config": "workspace:*",
-    "@nx-utils/prettier-config": "workspace:*",
     "@types/big.js": "^6.0.0",
     "tsup": "^8.0.0"
   }

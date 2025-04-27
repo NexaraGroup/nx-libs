@@ -20,7 +20,7 @@ const DEFAULT_DATE_OPTIONS: FormatDateOptions = {
  */
 export function formatDate(
   value: unknown,
-  options: FormatDateOptions = DEFAULT_DATE_OPTIONS
+  options: FormatDateOptions = DEFAULT_DATE_OPTIONS,
 ): string {
   const mergedOptions = { ...DEFAULT_DATE_OPTIONS, ...options };
   const { format } = mergedOptions;
@@ -40,7 +40,7 @@ export function formatDate(
     }
 
     // 处理数字类型（时间戳）或其他类型
-    const date = dayjs(value);
+    const date = dayjs(value as Parameters<typeof dayjs>[0]);
     if (date.isValid()) {
       return date.format(format);
     }
