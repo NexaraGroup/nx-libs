@@ -77,7 +77,7 @@ parserOptions: {
 }
 
 env: {
-    esnext: true, // 这个只校验 api
+    es2024: true, // 这个只校验 api
 }
 
 // 以下是：plugin:import/typescript 最佳配置
