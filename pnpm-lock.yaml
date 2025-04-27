@@ -111,9 +111,6 @@ importers:
       '@nx-utils/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@nx-utils/prettier-config':
-        specifier: workspace:*
-        version: link:../prettier-config
       '@nx-utils/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
