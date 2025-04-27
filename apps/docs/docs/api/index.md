@@ -33,6 +33,6 @@ NX Utils 由多个专注于特定功能的独立包组成：
 
 ## 更多资源
 
-- [项目 GitHub 仓库](https://github.com/nx-utils/nx-utils)
+- [项目 GitHub 仓库](https://github.com/NexaraGroup/nx-utils)
 - [NPM 包](https://www.npmjs.com/org/nx-utils)
 - [贡献指南](/guides/contributing) 

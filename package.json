@@ -1,5 +1,23 @@
 {
 	"name": "nx-utils",
+	"private": true,
+	"description": "前端工具库集合，提供可靠的开发工具",
+	"keywords": [
+		"typescript",
+		"eslint",
+		"prettier",
+		"format",
+		"utilities"
+	],
+	"homepage": "https://github.com/NexaraGroup/nx-utils#readme",
+	"bugs": {
+		"url": "https://github.com/NexaraGroup/nx-utils/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/NexaraGroup/nx-utils.git"
+	},
+	"license": "MIT",
 	"scripts": {
 		"build": "turbo run build",
 		"docs:dev": "turbo run docs:dev --filter=apps-docs",
