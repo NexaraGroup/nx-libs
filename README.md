@@ -1,5 +1,29 @@
 # @nx-utils
 
+## Git提交规范
+项目使用husky和commitlint强制执行Git提交规范：
+
+- **提交格式**:  
+  `<type>(<scope>): <subject>`  
+  例如: `feat(format): 添加数字格式化功能`
+
+- **类型(type)**:  
+  - `feat`: 新功能
+  - `fix`: 修复Bug
+  - `docs`: 文档更新
+  - `style`: 代码格式调整
+  - `refactor`: 重构
+  - `perf`: 性能优化
+  - `test`: 测试相关
+  - `chore`: 构建/工具相关
+  - `revert`: 代码回退
+
+- **范围(scope)**:  
+  可选，表示影响的包或模块，如`docs`, `format`, `eslint-config`等
+
+- **预提交检查**:  
+  提交前会自动运行lint检查
+
 ---
 
 ## Dev Memo
@@ -12,6 +36,34 @@
   共享的工具包。针对 `libs` 来说，就是要被发布的单包。  
   `eslint-config`、`typescript-config` 等也放在项目里是最佳实践，属于这个项目的校验规则(可以不发布)。  
   ~~`ui`，一层目录来定义 UI 组件，里面具体的发布后缀，可以在 `package.json` 单独定制。~~
+
+### 依赖管理最佳实践
+- **工具与配置分离**  
+  核心工具(`eslint`, `typescript`, `prettier`等)只安装在根目录package.json。  
+  配置文件放在专门的子包中(如`eslint-config`)。  
+  业务包只依赖配置包，无需重复安装工具。
+
+- **配置包的依赖声明**  
+  配置包应将对应工具声明为`peerDependencies`，例如：  
+  ```json
+  // packages/typescript-config/package.json
+  "peerDependencies": {
+    "typescript": ">=5.0.0"
+  }
+  ```  
+  表明"此配置需与特定版本工具一起使用"。
+
+- **类型定义位置**  
+  即使实际库是`peerDependencies`，其类型定义应放在`devDependencies`：  
+  ```json
+  "peerDependencies": {
+    "big.js": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/big.js": "^6.0.0"
+  }
+  ```  
+  类型只在开发时使用，最终会被编译到`.d.ts`文件中。
 
 ### peerDependencies
 `peerDependencies`，三大包管理器，趋同于如果版本（2、3位）不匹配发出警告，但是不打断，**使用者来保证版本**。
@@ -116,5 +168,5 @@ module.exports = {
 ## TODO
 1. format 里关于 turbo 的部分
 2. 接一个文档库，并且运行
-3. husky
+3. ~~husky~~
 4. 测试

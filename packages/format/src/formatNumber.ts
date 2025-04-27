@@ -1,4 +1,4 @@
-import Big from "big.js";
+import BigNumber from "big.js";
 
 export interface FormatNumberOptions {
   /**
@@ -27,7 +27,7 @@ const DEFAULT_NUMBER_OPTIONS: FormatNumberOptions = {
  */
 export function formatNumber(
   value: unknown,
-  options: FormatNumberOptions = DEFAULT_NUMBER_OPTIONS
+  options: FormatNumberOptions = DEFAULT_NUMBER_OPTIONS,
 ): string {
   const mergedOptions = { ...DEFAULT_NUMBER_OPTIONS, ...options };
   const { removeTrailingZeros, addThousandsSeparator } = mergedOptions;
@@ -55,7 +55,7 @@ export function formatNumber(
     return formatValidNumber(
       parsedNumber,
       removeTrailingZeros,
-      addThousandsSeparator
+      addThousandsSeparator,
     );
   }
 
@@ -69,11 +69,11 @@ export function formatNumber(
 function formatValidNumber(
   value: number,
   removeTrailingZeros: boolean,
-  addThousandsSeparator: boolean
+  addThousandsSeparator: boolean,
 ): string {
   try {
     // 使用Big.js处理数字，避免浮点数精度问题
-    const bigValue = new Big(value);
+    const bigValue = new BigNumber(value);
     let formatted = bigValue.toString();
 
     // 去除尾部的0
