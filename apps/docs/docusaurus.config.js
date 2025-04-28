@@ -14,6 +14,9 @@ module.exports = {
 	organizationName: 'NexaraGroup', // GitHub组织/用户名
 	projectName: 'nx-utils', // 仓库名
 
+	// SEO 相关配置
+	noIndex: false, // 允许搜索引擎索引
+
 	presets: [
 		[
 			'@docusaurus/preset-classic',
@@ -81,5 +84,12 @@ module.exports = {
 				disableSwitch: false,
 				respectPrefersColorScheme: true,
 			},
+			metadata: [
+				{ name: 'keywords', content: '前端工具库, nx-utils, 工具集合, 开发工具' },
+				{
+					name: 'description',
+					content: 'NX Utils 是一个前端工具库集合，提供各种实用的开发工具和配置。',
+				},
+			],
 		}),
 };

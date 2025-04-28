@@ -20,7 +20,7 @@
 	"license": "MIT",
 	"scripts": {
 		"build": "turbo run build",
-		"docs:dev": "turbo run docs:dev --filter=apps-docs",
+		"docs:dev": "turbo run docs:dev --filter=nx-utils-docs",
 		"format": "prettier --write \"**/*.{ts,tsx,md}\"",
 		"lint": "turbo run lint",
 		"prepare": "husky"

@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { motion } from 'framer-motion';
 import React from 'react';
 
 import styles from './styles.module.css';
@@ -124,19 +125,28 @@ const FeatureList = [
 
 function Feature({ icon, title, description }) {
 	return (
-		<div className={clsx('col col--4')}>
+		<motion.div
+			className={clsx('col col--4')}
+			whileHover={{ scale: 1.05 }}
+			transition={{ duration: 0.2 }}
+		>
 			<div className="text--center padding-vert--md">{icon}</div>
 			<div className="padding-horiz--md">
 				<h3 className="text--center">{title}</h3>
 				<p className="text--center">{description}</p>
 			</div>
-		</div>
+		</motion.div>
 	);
 }
 
 export default function HomepageFeatures() {
 	return (
-		<section className={styles.features}>
+		<motion.section
+			className={styles.features}
+			initial={{ opacity: 0, y: 20 }}
+			animate={{ opacity: 1, y: 0 }}
+			transition={{ duration: 0.5 }}
+		>
 			<div className="container">
 				<div className="row">
 					{FeatureList.map((props, idx) => (
@@ -144,6 +154,6 @@ export default function HomepageFeatures() {
 					))}
 				</div>
 			</div>
-		</section>
+		</motion.section>
 	);
 }
