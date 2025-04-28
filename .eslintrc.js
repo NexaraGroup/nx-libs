@@ -1,5 +1,5 @@
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
-  root: true,
-  extends: ["@nx-utils/eslint-config"],
+	root: true,
+	extends: ['@nx-utils/eslint-config'],
 };

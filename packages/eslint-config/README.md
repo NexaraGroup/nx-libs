@@ -32,7 +32,7 @@ yarn add -D @nx-utils/eslint-config eslint
 ```js
 // .eslintrc.js
 module.exports = {
-  extends: ['@nx-utils/eslint-config'],
+  extends: ['@nx-utils/eslint-config'], // 默认就是引入 base
   // 或明确指定基础配置
   // extends: ['@nx-utils/eslint-config/base'],
   rules: {
