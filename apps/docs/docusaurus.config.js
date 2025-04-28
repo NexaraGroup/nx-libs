@@ -40,7 +40,7 @@ module.exports = {
 				title: 'NX Utils',
 				logo: {
 					alt: 'NX Utils Logo',
-					src: 'img/logo.svg',
+					src: 'img/logo.jpg',
 				},
 				items: [
 					{
