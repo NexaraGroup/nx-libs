@@ -123,11 +123,3 @@ pnpm link --global
 # 在测试项目中
 pnpm link --global @nx-utils/format
 ```
-
-## 联系我们
-
-如有任何问题，请通过以下方式联系我们：
-
-- GitHub Issues
-- Pull Requests
-- 电子邮件：contact@nx-utils.dev 

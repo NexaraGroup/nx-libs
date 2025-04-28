@@ -149,7 +149,7 @@ module.exports = {
 
 ## 接下来
 
-- 查看 [Format 包](/packages/format) 了解更多数字和日期格式化功能
-- 了解 [TypeScript 配置](/packages/typescript-config) 的详细配置项
-- 探索 [ESLint 配置](/packages/eslint-config) 中包含的规则
-- 查看 [Prettier 配置](/packages/prettier-config) 的预设规则 
+- 查看 [Format 包](/docs/packages/format) 了解更多数字和日期格式化功能
+- 了解 [TypeScript 配置](/docs/packages/typescript-config) 的详细配置项
+- 探索 [ESLint 配置](/docs/packages/eslint-config) 中包含的规则
+- 查看 [Prettier 配置](/docs/packages/prettier-config) 的预设规则 
