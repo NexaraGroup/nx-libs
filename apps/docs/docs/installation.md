@@ -98,7 +98,3 @@ pnpm add -D @nx-utils/typescript-config @nx-utils/eslint-config @nx-utils/pretti
 - TypeScript: 4.5 或更高版本
 - 支持的浏览器: 所有现代浏览器和 IE11 (需要适当的 polyfills)
 
-## 下一步
-
-- [快速开始](/getting-started) - 学习如何在项目中使用 NX Utils
-- [包介绍](/packages/format) - 了解每个包的详细用法 

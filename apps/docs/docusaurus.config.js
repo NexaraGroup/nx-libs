@@ -20,10 +20,10 @@ module.exports = {
 			/** @type {import('@docusaurus/preset-classic').Options} */
 			({
 				docs: {
+					path: 'docs',
+					routeBasePath: 'docs',
 					sidebarPath: require.resolve('./sidebars.js'),
-					// 修改为正确的仓库
 					editUrl: 'https://github.com/NexaraGroup/nx-utils/edit/main/apps/docs/',
-					routeBasePath: '/', // 将文档设置为首页
 				},
 				blog: false, // 禁用博客功能
 				theme: {
@@ -44,21 +44,15 @@ module.exports = {
 				},
 				items: [
 					{
-						type: 'doc',
-						docId: 'intro',
+						to: '/',
+						label: '首页',
 						position: 'left',
+						activeBaseRegex: '^/$',
+					},
+					{
+						to: '/docs/',
 						label: '文档',
-					},
-					{
-						type: 'doc',
-						docId: 'api/index',
 						position: 'left',
-						label: 'API',
-					},
-					{
-						href: 'https://github.com/NexaraGroup/nx-utils',
-						label: 'GitHub',
-						position: 'right',
 					},
 				],
 			},
@@ -66,37 +60,11 @@ module.exports = {
 				style: 'dark',
 				links: [
 					{
-						title: '文档',
+						title: '相关链接',
 						items: [
-							{
-								label: '快速开始',
-								to: '/',
-							},
-							{
-								label: 'API 参考',
-								to: '/api',
-							},
-						],
-					},
-					{
-						title: '社区',
-						items: [
-							{
-								label: 'GitHub Discussions',
-								href: 'https://github.com/NexaraGroup/nx-utils/discussions',
-							},
 							{
 								label: '问题反馈',
 								href: 'https://github.com/NexaraGroup/nx-utils/issues',
-							},
-						],
-					},
-					{
-						title: '更多',
-						items: [
-							{
-								label: 'GitHub',
-								href: 'https://github.com/NexaraGroup/nx-utils',
 							},
 						],
 					},

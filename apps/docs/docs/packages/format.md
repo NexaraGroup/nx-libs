@@ -175,6 +175,6 @@ formatDate(new Date(), {
 
 ## 相关链接
 
-- [GitHub仓库](https://github.com/NexaraGroup/nx-utils)
+- [问题反馈](https://github.com/NexaraGroup/nx-utils/issues)
 - [big.js](https://github.com/MikeMcl/big.js/) - 用于精确数值计算
 - [dayjs](https://day.js.org/) - 用于日期处理和格式化 
