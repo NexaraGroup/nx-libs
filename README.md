@@ -163,10 +163,22 @@ module.exports = {
 }
 ```
 
+> 关于 turbo 的构建实践
+
+**最佳实践：**
+1. 在根目录执行 `pnpm turbo run build` 或 `turbo run build`，Turbo 会自动扫描工作区中所有定义了 `build` 脚本的包，并行执行构建。
+2. 对于源码、依赖、配置均未变化的包，Turbo 会直接从缓存中恢复之前的 `dist/**`，跳过实际构建，大幅加速本地和 CI 构建。
+3. 如需单包构建，可使用过滤器：`pnpm turbo run build --filter=packages/format` 或按包名过滤。
+
+> Turborepo 任务关键配置解释
+- **dependsOn**: 用于声明任务依赖。`"^build"` 表示当前包在执行 `build` 前，会先执行所有上游依赖包的 `build`，保证依赖包先产出最新产物。
+- **inputs**: 定义任务输入文件集合，用于生成输入哈希。`["$TURBO_DEFAULT$", ".env*"]` 包含源码、配置文件、锁文件、依赖版本等，只有输入变化时才触发重新执行。
+- **outputs**: 定义任务产出文件路径，用于缓存和还原。`["dist/**"]` 表示将 `dist` 目录下的所有文件作为缓存目标，下次输入哈希相同则直接从缓存恢复，无需重新构建。
+
 ---
 
 ## TODO
 1. format 里关于 turbo 的部分
 2. 接一个文档库，并且运行
-3. ~~husky~~
 4. 测试
+6. turbo 的 "lint": {}, lint 任务检查，还没搞
