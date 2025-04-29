@@ -10,7 +10,7 @@
 
 ```json
 {
-  "extends": "@repo/typescript-config/base.json"
+	"extends": "@repo/typescript-config/base.json"
 }
 ```
 
@@ -20,7 +20,7 @@
 
 ```json
 {
-  "extends": "@repo/typescript-config/react-library.json"
+	"extends": "@repo/typescript-config/react-library.json"
 }
 ```
 
@@ -30,7 +30,7 @@
 
 ```json
 {
-  "extends": "@repo/typescript-config/nextjs.json"
+	"extends": "@repo/typescript-config/nextjs.json"
 }
 ```
 
@@ -40,7 +40,7 @@
 
 ```json
 {
-  "extends": "@repo/typescript-config/library.json"
+	"extends": "@repo/typescript-config/library.json"
 }
 ```
 
@@ -53,58 +53,63 @@
 ### 示例
 
 基础项目示例：
+
 ```json
 {
-  "extends": "@repo/typescript-config/base.json",
-  "compilerOptions": {
-    "rootDir": "src",
-    "outDir": "dist"
-  },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "dist"]
+	"extends": "@repo/typescript-config/base.json",
+	"compilerOptions": {
+		"rootDir": "src",
+		"outDir": "dist"
+	},
+	"include": ["src/**/*.ts"],
+	"exclude": ["node_modules", "dist"]
 }
 ```
 
 React 项目示例：
+
 ```json
 {
-  "extends": "@repo/typescript-config/react-library.json",
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@components/*": ["src/components/*"],
-      "@hooks/*": ["src/hooks/*"]
-    }
-  },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
-  "exclude": ["node_modules", "dist"]
+	"extends": "@repo/typescript-config/react-library.json",
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@components/*": ["src/components/*"],
+			"@hooks/*": ["src/hooks/*"]
+		}
+	},
+	"include": ["src/**/*.ts", "src/**/*.tsx"],
+	"exclude": ["node_modules", "dist"]
 }
 ```
 
 Next.js 项目示例：
+
 ```json
 {
-  "extends": "@repo/typescript-config/nextjs.json",
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+	"extends": "@repo/typescript-config/nextjs.json",
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+	"exclude": ["node_modules"]
 }
 ```
 
 TypeScript 库示例：
+
 ```json
 {
-  "extends": "@repo/typescript-config/library.json",
-  "compilerOptions": {
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  }
+	"extends": "@repo/typescript-config/library.json",
+	"compilerOptions": {
+		"paths": {
+			"@/*": ["./src/*"]
+		}
+	}
 }
 ```
 
 ## 核心配置特性
 
 ### 基础、React 和 Next.js 配置特性
+
 - **现代目标** - 使用 `ES2022` 作为编译目标，支持较新的 JavaScript 特性
 - **严格类型检查** - 启用 `strict: true` 和其他增强类型安全的选项
 - **优化性能** - 启用 `incremental` 和 `skipLibCheck` 提高构建速度
@@ -138,13 +143,13 @@ TypeScript 库示例：
 
 ```json
 {
-  "extends": "@repo/typescript-config/base.json",
-  "compilerOptions": {
-    // 你的自定义配置...
-    "target": "ES2020",            // 降级目标
-    "strictNullChecks": false,     // 放宽某些严格检查
-    "experimentalDecorators": true // 添加实验特性
-  }
+	"extends": "@repo/typescript-config/base.json",
+	"compilerOptions": {
+		// 你的自定义配置...
+		"target": "ES2020", // 降级目标
+		"strictNullChecks": false, // 放宽某些严格检查
+		"experimentalDecorators": true // 添加实验特性
+	}
 }
 ```
 
@@ -155,21 +160,22 @@ TypeScript 库示例：
 ```json
 // package.json
 {
-  "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts",
-    "typecheck": "tsc --noEmit"
-  },
-  "main": "dist/index.js",        // CommonJS 入口
-  "module": "dist/index.mjs",      // ESM 入口
-  "types": "dist/index.d.ts",      // 类型声明
-  "exports": {                     // 条件导出
-    ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    }
-  }
+	"scripts": {
+		"build": "tsup src/index.ts --format esm,cjs --dts",
+		"typecheck": "tsc --noEmit"
+	},
+	"main": "dist/index.js", // CommonJS 入口
+	"module": "dist/index.mjs", // ESM 入口
+	"types": "dist/index.d.ts", // 类型声明
+	"exports": {
+		// 条件导出
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.js",
+			"types": "./dist/index.d.ts"
+		}
+	}
 }
 ```
 
-这种设置可以确保你的库在各种环境中都能良好工作，并且同时提供 ESM 和 CommonJS 格式的输出。 
+这种设置可以确保你的库在各种环境中都能良好工作，并且同时提供 ESM 和 CommonJS 格式的输出。

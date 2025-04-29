@@ -32,12 +32,12 @@ yarn add -D @nx-utils/eslint-config eslint
 ```js
 // .eslintrc.js
 module.exports = {
-  extends: ['@nx-utils/eslint-config'], // 默认就是引入 base
-  // 或明确指定基础配置
-  // extends: ['@nx-utils/eslint-config/base'],
-  rules: {
-    // 自定义规则
-  }
+	extends: ['@nx-utils/eslint-config'], // 默认就是引入 base
+	// 或明确指定基础配置
+	// extends: ['@nx-utils/eslint-config/base'],
+	rules: {
+		// 自定义规则
+	},
 };
 ```
 
@@ -48,10 +48,10 @@ module.exports = {
 ```js
 // .eslintrc.js
 module.exports = {
-  extends: ['@nx-utils/eslint-config/react'],
-  rules: {
-    // 自定义规则
-  }
+	extends: ['@nx-utils/eslint-config/react'],
+	rules: {
+		// 自定义规则
+	},
 };
 ```
 
@@ -62,10 +62,10 @@ module.exports = {
 ```js
 // .eslintrc.js
 module.exports = {
-  extends: ['@nx-utils/eslint-config/next'],
-  rules: {
-    // 自定义规则
-  }
+	extends: ['@nx-utils/eslint-config/next'],
+	rules: {
+		// 自定义规则
+	},
 };
 ```
 
@@ -78,6 +78,7 @@ base（基础） → react（React扩展） → next（Next.js扩展）
 ```
 
 每个层级都专注于特定领域：
+
 - `base`: 基础TypeScript语法和导入规则
 - `react`: 继承`base`并添加React特定规则
 - `next`: 继承`react`并添加Next.js特定规则
@@ -87,39 +88,43 @@ base（基础） → react（React扩展） → next（Next.js扩展）
 ### 基础配置 (`base`)
 
 - **TypeScript规则**
-  - `@typescript-eslint/no-explicit-any`: 警告使用`any`类型
-  - `@typescript-eslint/no-unused-vars`: 警告未使用的变量（忽略下划线开头的参数）
-  - `@typescript-eslint/no-non-null-assertion`: 允许非空断言操作符
+
+    - `@typescript-eslint/no-explicit-any`: 警告使用`any`类型
+    - `@typescript-eslint/no-unused-vars`: 警告未使用的变量（忽略下划线开头的参数）
+    - `@typescript-eslint/no-non-null-assertion`: 允许非空断言操作符
 
 - **导入排序规则**
-  - 按分组排序：内置模块 → 外部依赖 → 内部模块 → 父级目录 → 同级目录 → 索引文件
-  - 组间添加空行
-  - 按字母顺序排序（忽略大小写）
+    - 按分组排序：内置模块 → 外部依赖 → 内部模块 → 父级目录 → 同级目录 → 索引文件
+    - 组间添加空行
+    - 按字母顺序排序（忽略大小写）
 
 ### React配置 (`react`)
 
 - **React核心规则**
-  - `react/react-in-jsx-scope`: 关闭（React 17+不需要导入React）
-  - `react/prop-types`: 关闭（使用TypeScript类型代替）
-  - `react/jsx-curly-brace-presence`: 禁止不必要的花括号
+
+    - `react/react-in-jsx-scope`: 关闭（React 17+不需要导入React）
+    - `react/prop-types`: 关闭（使用TypeScript类型代替）
+    - `react/jsx-curly-brace-presence`: 禁止不必要的花括号
 
 - **React Hooks规则**
-  - `react-hooks/rules-of-hooks`: 强制执行Hooks规则
-  - `react-hooks/exhaustive-deps`: 警告依赖数组不完整
+
+    - `react-hooks/rules-of-hooks`: 强制执行Hooks规则
+    - `react-hooks/exhaustive-deps`: 警告依赖数组不完整
 
 - **可访问性规则**
-  - 确保链接元素符合可访问性标准
-  - 自定义组件（如Link）也需遵循规则
+    - 确保链接元素符合可访问性标准
+    - 自定义组件（如Link）也需遵循规则
 
 ### Next.js配置 (`next`)
 
 - **Next.js优化规则**
-  - `@next/next/no-html-link-for-pages`: 强制使用Next.js的Link组件
-  - `@next/next/no-img-element`: 鼓励使用Next.js的Image组件
+
+    - `@next/next/no-html-link-for-pages`: 强制使用Next.js的Link组件
+    - `@next/next/no-img-element`: 鼓励使用Next.js的Image组件
 
 - **性能优化**
-  - 融合了`next/core-web-vitals`配置
-  - 针对Next.js应用优化的导入排序
+    - 融合了`next/core-web-vitals`配置
+    - 针对Next.js应用优化的导入排序
 
 ## 依赖项
 
@@ -136,13 +141,13 @@ base（基础） → react（React扩展） → next（Next.js扩展）
 ```js
 // .eslintrc.js
 module.exports = {
-  extends: ['@nx-utils/eslint-config/react'],
-  rules: {
-    // 覆盖内置规则
-    '@typescript-eslint/no-explicit-any': 'error',
-    
-    // 添加自定义规则
-    'no-console': ['warn', { allow: ['warn', 'error'] }],
-  }
+	extends: ['@nx-utils/eslint-config/react'],
+	rules: {
+		// 覆盖内置规则
+		'@typescript-eslint/no-explicit-any': 'error',
+
+		// 添加自定义规则
+		'no-console': ['warn', { allow: ['warn', 'error'] }],
+	},
 };
-``` 
+```

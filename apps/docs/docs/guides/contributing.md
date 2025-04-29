@@ -36,6 +36,7 @@ pnpm install
 ### 开发流程
 
 1. 从 `develop` 分支创建新分支
+
 ```bash
 git checkout develop
 git pull
@@ -43,6 +44,7 @@ git checkout -b feature/your-feature-name
 ```
 
 2. 进行开发和测试
+
 ```bash
 # 启动开发服务
 pnpm dev
@@ -55,12 +57,14 @@ pnpm lint
 ```
 
 3. 提交修改
+
 ```bash
 git add .
 git commit -m "feat: add your feature description"
 ```
 
 4. 推送分支并创建 Pull Request
+
 ```bash
 git push origin feature/your-feature-name
 ```
@@ -79,6 +83,7 @@ git push origin feature/your-feature-name
 - `chore:` - 构建过程或辅助工具的变动
 
 示例：
+
 ```
 feat: 添加数字格式化支持千分位分隔符
 fix: 修复日期格式化在Safari浏览器的兼容性问题

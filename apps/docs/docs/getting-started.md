@@ -14,23 +14,23 @@ sidebar_position: 3
 import { formatNumber } from '@nx-utils/format';
 
 // 基本使用
-formatNumber(1234.5600);  // "1,234.56"
-formatNumber('1234.5600');  // "1,234.56"
+formatNumber(1234.56); // "1,234.56"
+formatNumber('1234.5600'); // "1,234.56"
 
 // 处理无效输入
-formatNumber('非数字');  // "-"
-formatNumber(null);  // "-"
-formatNumber(undefined);  // "-"
+formatNumber('非数字'); // "-"
+formatNumber(null); // "-"
+formatNumber(undefined); // "-"
 
 // 保留尾部的零
-formatNumber(1234.5600, { 
-  removeTrailingZeros: false 
-});  // "1,234.5600"
+formatNumber(1234.56, {
+	removeTrailingZeros: false,
+}); // "1,234.5600"
 
 // 不使用千分位分隔符
-formatNumber(1234.5600, { 
-  addThousandsSeparator: false 
-});  // "1234.56"
+formatNumber(1234.56, {
+	addThousandsSeparator: false,
+}); // "1234.56"
 ```
 
 ### 日期格式化
@@ -39,18 +39,18 @@ formatNumber(1234.5600, {
 import { formatDate } from '@nx-utils/format';
 
 // 基本使用
-formatDate(new Date());  // "2023-04-25 14:30:45"
-formatDate('2023-01-01');  // "2023-01-01 00:00:00"
-formatDate(1672531200000);  // "2023-01-01 00:00:00"
+formatDate(new Date()); // "2023-04-25 14:30:45"
+formatDate('2023-01-01'); // "2023-01-01 00:00:00"
+formatDate(1672531200000); // "2023-01-01 00:00:00"
 
 // 自定义格式
-formatDate(new Date(), { 
-  format: 'YYYY年MM月DD日' 
-});  // "2023年04月25日"
+formatDate(new Date(), {
+	format: 'YYYY年MM月DD日',
+}); // "2023年04月25日"
 
-formatDate(new Date(), { 
-  format: 'HH:mm:ss' 
-});  // "14:30:45"
+formatDate(new Date(), {
+	format: 'HH:mm:ss',
+}); // "14:30:45"
 ```
 
 ## TypeScript 配置使用示例
@@ -65,14 +65,14 @@ npm install -D @nx-utils/typescript-config
 
 ```json
 {
-  "extends": "@nx-utils/typescript-config/base.json",
-  "compilerOptions": {
-    // 自定义选项...
-    "rootDir": "src",
-    "outDir": "dist"
-  },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "dist"]
+	"extends": "@nx-utils/typescript-config/base.json",
+	"compilerOptions": {
+		// 自定义选项...
+		"rootDir": "src",
+		"outDir": "dist"
+	},
+	"include": ["src/**/*.ts"],
+	"exclude": ["node_modules", "dist"]
 }
 ```
 
@@ -80,8 +80,8 @@ npm install -D @nx-utils/typescript-config
 
 ```json
 {
-  "extends": "@nx-utils/typescript-config/react-library.json",
-  // 其他自定义配置...
+	"extends": "@nx-utils/typescript-config/react-library.json"
+	// 其他自定义配置...
 }
 ```
 
@@ -89,8 +89,8 @@ npm install -D @nx-utils/typescript-config
 
 ```json
 {
-  "extends": "@nx-utils/typescript-config/nextjs.json",
-  // 其他自定义配置...
+	"extends": "@nx-utils/typescript-config/nextjs.json"
+	// 其他自定义配置...
 }
 ```
 
@@ -106,8 +106,8 @@ npm install -D @nx-utils/eslint-config
 
 ```js
 module.exports = {
-  extends: ['@nx-utils/eslint-config/base'],
-  // 自定义规则...
+	extends: ['@nx-utils/eslint-config/base'],
+	// 自定义规则...
 };
 ```
 
@@ -115,8 +115,8 @@ module.exports = {
 
 ```js
 module.exports = {
-  extends: ['@nx-utils/eslint-config/react'],
-  // 自定义规则...
+	extends: ['@nx-utils/eslint-config/react'],
+	// 自定义规则...
 };
 ```
 
@@ -140,10 +140,10 @@ module.exports = require('@nx-utils/prettier-config');
 const baseConfig = require('@nx-utils/prettier-config');
 
 module.exports = {
-  ...baseConfig,
-  // 自定义规则...
-  printWidth: 100,
-  tabWidth: 2,
+	...baseConfig,
+	// 自定义规则...
+	printWidth: 100,
+	tabWidth: 2,
 };
 ```
 
@@ -152,4 +152,4 @@ module.exports = {
 - 查看 [Format 包](/docs/packages/format) 了解更多数字和日期格式化功能
 - 了解 [TypeScript 配置](/docs/packages/typescript-config) 的详细配置项
 - 探索 [ESLint 配置](/docs/packages/eslint-config) 中包含的规则
-- 查看 [Prettier 配置](/docs/packages/prettier-config) 的预设规则 
+- 查看 [Prettier 配置](/docs/packages/prettier-config) 的预设规则

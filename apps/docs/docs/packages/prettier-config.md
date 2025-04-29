@@ -29,7 +29,7 @@ yarn add -D @nx-utils/prettier-config prettier
 
 ```json
 {
-  "prettier": "@nx-utils/prettier-config"
+	"prettier": "@nx-utils/prettier-config"
 }
 ```
 
@@ -39,9 +39,9 @@ yarn add -D @nx-utils/prettier-config prettier
 
 ```js
 module.exports = {
-  ...require('@nx-utils/prettier-config'),
-  // 在这里可以添加自定义配置来覆盖默认设置
-  semi: true
+	...require('@nx-utils/prettier-config'),
+	// 在这里可以添加自定义配置来覆盖默认设置
+	semi: true,
 };
 ```
 
@@ -79,10 +79,10 @@ npm install --save-dev eslint-config-prettier
 
 ```json
 {
-  "extends": [
-    // 其他扩展...
-    "prettier" // 必须放在最后
-  ]
+	"extends": [
+		// 其他扩展...
+		"prettier" // 必须放在最后
+	]
 }
 ```
 
@@ -96,8 +96,8 @@ npm install --save-dev eslint-config-prettier
 
 ```json
 {
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true
 }
 ```
 
@@ -114,17 +114,17 @@ npm install --save-dev eslint-config-prettier
 ```js
 // .prettierrc.js
 module.exports = {
-  ...require('@nx-utils/prettier-config'),
-  
-  // 根据项目需要覆盖配置
-  semi: true,                 // 使用分号
-  tabWidth: 4,                // 使用4个空格缩进
-  printWidth: 120,            // 增加行宽
-  useTabs: false              // 使用空格而非制表符
+	...require('@nx-utils/prettier-config'),
+
+	// 根据项目需要覆盖配置
+	semi: true, // 使用分号
+	tabWidth: 4, // 使用4个空格缩进
+	printWidth: 120, // 增加行宽
+	useTabs: false, // 使用空格而非制表符
 };
 ```
 
 ## 相关链接
 
 - [GitHub仓库](https://github.com/NexaraGroup/nx-utils)
-- [Prettier官方文档](https://prettier.io/docs/en/) 
+- [Prettier官方文档](https://prettier.io/docs/en/)

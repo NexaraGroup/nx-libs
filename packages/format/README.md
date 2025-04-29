@@ -32,44 +32,44 @@ npm install big.js dayjs
 import { formatNumber } from '@nx-utils/format';
 
 // 基本使用
-formatNumber(1234.5600);       // "1,234.56"
-formatNumber('1234.5600');     // "1,234.56"
+formatNumber(1234.56); // "1,234.56"
+formatNumber('1234.5600'); // "1,234.56"
 
 // 处理无效输入
-formatNumber('非数字');        // "-"
-formatNumber({});             // "-"
-formatNumber(NaN);            // "-"
-formatNumber(Infinity);       // "-"
+formatNumber('非数字'); // "-"
+formatNumber({}); // "-"
+formatNumber(NaN); // "-"
+formatNumber(Infinity); // "-"
 
 // 处理精度问题
-formatNumber(0.1 + 0.2);      // "0.3" (而不是 "0.30000000000000004")
+formatNumber(0.1 + 0.2); // "0.3" (而不是 "0.30000000000000004")
 ```
 
 ### 自定义选项
 
 ```ts
 // 保留尾部的零
-formatNumber(1234.5600, { 
-  removeTrailingZeros: false 
+formatNumber(1234.56, {
+	removeTrailingZeros: false,
 }); // "1,234.5600"
 
 // 不使用千分位分隔符
-formatNumber(1234.5600, { 
-  addThousandsSeparator: false 
+formatNumber(1234.56, {
+	addThousandsSeparator: false,
 }); // "1234.56"
 
 // 组合选项
-formatNumber(1234.5600, { 
-  removeTrailingZeros: false, 
-  addThousandsSeparator: false 
+formatNumber(1234.56, {
+	removeTrailingZeros: false,
+	addThousandsSeparator: false,
 }); // "1234.5600"
 ```
 
 ### 数字格式化选项
 
-| 选项 | 类型 | 默认值 | 描述 |
-| --- | --- | --- | --- |
-| `removeTrailingZeros` | `boolean` | `true` | 是否去除尾部的0 |
+| 选项                    | 类型      | 默认值 | 描述                 |
+| ----------------------- | --------- | ------ | -------------------- |
+| `removeTrailingZeros`   | `boolean` | `true` | 是否去除尾部的0      |
 | `addThousandsSeparator` | `boolean` | `true` | 是否添加千分位分隔符 |
 
 ## 日期格式化
@@ -82,46 +82,46 @@ formatNumber(1234.5600, {
 import { formatDate } from '@nx-utils/format';
 
 // 当前日期
-formatDate(new Date());           // "2023-06-15 14:30:25"
+formatDate(new Date()); // "2023-06-15 14:30:25"
 
 // 支持多种输入格式
-formatDate('2023-01-01');         // "2023-01-01 00:00:00"
-formatDate(1672531200000);        // "2023-01-01 00:00:00"
-formatDate('1672531200000');      // "2023-01-01 00:00:00"
+formatDate('2023-01-01'); // "2023-01-01 00:00:00"
+formatDate(1672531200000); // "2023-01-01 00:00:00"
+formatDate('1672531200000'); // "2023-01-01 00:00:00"
 
 // 处理无效输入
-formatDate('无效日期');           // "-"
-formatDate(null);                 // "-"
+formatDate('无效日期'); // "-"
+formatDate(null); // "-"
 ```
 
 ### 自定义格式
 
 ```ts
 // 年月日
-formatDate(new Date(), { 
-  format: 'YYYY年MM月DD日' 
+formatDate(new Date(), {
+	format: 'YYYY年MM月DD日',
 }); // "2023年01月01日"
 
 // 不同地区格式
-formatDate(new Date(), { 
-  format: 'MM/DD/YYYY' 
+formatDate(new Date(), {
+	format: 'MM/DD/YYYY',
 }); // "01/01/2023"
 
 // 仅日期部分
-formatDate(new Date(), { 
-  format: 'YYYY-MM-DD' 
+formatDate(new Date(), {
+	format: 'YYYY-MM-DD',
 }); // "2023-01-01"
 
 // 仅时间部分
-formatDate(new Date(), { 
-  format: 'HH:mm:ss' 
+formatDate(new Date(), {
+	format: 'HH:mm:ss',
 }); // "14:30:25"
 ```
 
 ### 日期格式化选项
 
-| 选项 | 类型 | 默认值 | 描述 |
-| --- | --- | --- | --- |
+| 选项     | 类型     | 默认值                  | 描述                          |
+| -------- | -------- | ----------------------- | ----------------------------- |
 | `format` | `string` | `"YYYY-MM-DD HH:mm:ss"` | 日期格式，支持dayjs的所有格式 |
 
 ## 格式说明
@@ -153,4 +153,4 @@ formatDate(new Date(), {
 
 ## 许可证
 
-MIT 
+MIT

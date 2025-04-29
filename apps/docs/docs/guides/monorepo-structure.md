@@ -53,17 +53,17 @@ nx-utils/
 
 ```yaml
 packages:
-  - 'apps/*'
-  - 'packages/*'
+    - 'apps/*'
+    - 'packages/*'
 ```
 
 包之间的内部依赖使用 `workspace:*` 协议：
 
 ```json
 {
-  "dependencies": {
-    "@nx-utils/format": "workspace:*"
-  }
+	"dependencies": {
+		"@nx-utils/format": "workspace:*"
+	}
 }
 ```
 
@@ -80,22 +80,22 @@ packages:
 
 ```json
 {
-  "$schema": "https://turbo.build/schema.json",
-  "tasks": {
-    "build": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**"]
-    },
-    "dev": {
-      "cache": false,
-      "persistent": true
-    },
-    "lint": {},
-    "test": {
-      "dependsOn": ["build"],
-      "outputs": []
-    }
-  }
+	"$schema": "https://turbo.build/schema.json",
+	"tasks": {
+		"build": {
+			"dependsOn": ["^build"],
+			"outputs": ["dist/**"]
+		},
+		"dev": {
+			"cache": false,
+			"persistent": true
+		},
+		"lint": {},
+		"test": {
+			"dependsOn": ["build"],
+			"outputs": []
+		}
+	}
 }
 ```
 
@@ -123,22 +123,20 @@ packages:
 
 ```json
 {
-  "name": "@nx-utils/new-package",
-  "version": "0.0.0",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "sideEffects": false,
-  "license": "MIT",
-  "files": [
-    "dist/**"
-  ],
-  "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts",
-    "dev": "tsup src/index.ts --format esm,cjs --watch --dts",
-    "lint": "eslint \"src/**/*.ts\"",
-    "test": "jest"
-  }
+	"name": "@nx-utils/new-package",
+	"version": "0.0.0",
+	"main": "./dist/index.js",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
+	"sideEffects": false,
+	"license": "MIT",
+	"files": ["dist/**"],
+	"scripts": {
+		"build": "tsup src/index.ts --format esm,cjs --dts",
+		"dev": "tsup src/index.ts --format esm,cjs --watch --dts",
+		"lint": "eslint \"src/**/*.ts\"",
+		"test": "jest"
+	}
 }
 ```
 
@@ -188,4 +186,4 @@ pnpm publish --access public
 - **增量构建**: 只重建有改动的包
 - **并行执行**: 提高构建速度
 - **原子更改**: 跨包修改可以在单个提交中完成
-- **简化依赖**: 一致的依赖版本 
+- **简化依赖**: 一致的依赖版本

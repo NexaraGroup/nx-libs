@@ -97,4 +97,3 @@ pnpm add -D @nx-utils/typescript-config @nx-utils/eslint-config @nx-utils/pretti
 - Node.js: 14.x 或更高版本
 - TypeScript: 4.5 或更高版本
 - 支持的浏览器: 所有现代浏览器和 IE11 (需要适当的 polyfills)
-

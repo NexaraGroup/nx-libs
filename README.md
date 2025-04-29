@@ -1,22 +1,24 @@
 # @nx-utils
 
 ## Git提交规范
+
 项目使用husky和commitlint强制执行Git提交规范：
 
 - **提交格式**:  
   `<type>(<scope>): <subject>`  
   例如: `feat(format): 添加数字格式化功能`
 
-- **类型(type)**:  
-  - `feat`: 新功能
-  - `fix`: 修复Bug
-  - `docs`: 文档更新
-  - `style`: 代码格式调整
-  - `refactor`: 重构
-  - `perf`: 性能优化
-  - `test`: 测试相关
-  - `chore`: 构建/工具相关
-  - `revert`: 代码回退
+- **类型(type)**:
+
+    - `feat`: 新功能
+    - `fix`: 修复Bug
+    - `docs`: 文档更新
+    - `style`: 代码格式调整
+    - `refactor`: 重构
+    - `perf`: 性能优化
+    - `test`: 测试相关
+    - `chore`: 构建/工具相关
+    - `revert`: 代码回退
 
 - **范围(scope)**:  
   可选，表示影响的包或模块，如`docs`, `format`, `eslint-config`等
@@ -29,6 +31,7 @@
 ## Dev Memo
 
 ### 目录结构
+
 - apps  
   多包项目中，可能存在的真实项目。如果针对 `libs` 的话，通常是放官网、项目文档类型的应用。
 
@@ -38,42 +41,47 @@
   ~~`ui`，一层目录来定义 UI 组件，里面具体的发布后缀，可以在 `package.json` 单独定制。~~
 
 ### 依赖管理最佳实践
+
 - **工具与配置分离**  
   核心工具(`eslint`, `typescript`, `prettier`等)只安装在根目录package.json。  
   配置文件放在专门的子包中(如`eslint-config`)。  
   业务包只依赖配置包，无需重复安装工具。
 
 - **配置包的依赖声明**  
-  配置包应将对应工具声明为`peerDependencies`，例如：  
-  ```json
-  // packages/typescript-config/package.json
-  "peerDependencies": {
-    "typescript": ">=5.0.0"
-  }
-  ```  
-  表明"此配置需与特定版本工具一起使用"。
+  配置包应将对应工具声明为`peerDependencies`，例如：
+
+    ```json
+    // packages/typescript-config/package.json
+    "peerDependencies": {
+      "typescript": ">=5.0.0"
+    }
+    ```
+
+    表明"此配置需与特定版本工具一起使用"。
 
 - **类型定义位置**  
-  即使实际库是`peerDependencies`，其类型定义应放在`devDependencies`：  
-  ```json
-  "peerDependencies": {
-    "big.js": "^6.0.0"
-  },
-  "devDependencies": {
-    "@types/big.js": "^6.0.0"
-  }
-  ```  
-  类型只在开发时使用，最终会被编译到`.d.ts`文件中。
+  即使实际库是`peerDependencies`，其类型定义应放在`devDependencies`：
+    ```json
+    "peerDependencies": {
+      "big.js": "^6.0.0"
+    },
+    "devDependencies": {
+      "@types/big.js": "^6.0.0"
+    }
+    ```
+    类型只在开发时使用，最终会被编译到`.d.ts`文件中。
 
 ### peerDependencies
+
 `peerDependencies`，三大包管理器，趋同于如果版本（2、3位）不匹配发出警告，但是不打断，**使用者来保证版本**。
 
 ### eslint
+
 ```
 parserOptions: {
     ecmaVersion: "latest", // 这个只校验语法
     // 默认值是不设置，这个不用开，类型交给 ts 相关的东西去检查，不需要 eslint 来，vscode 和第三方编译工具，都能做这个事情
-    project: false, 
+    project: false,
 }
 
 env: {
@@ -92,6 +100,7 @@ settings: {
 ```
 
 ### jsdoc 类型补全
+
 ```
 xxx.cjs
 /** @type {import("eslint").Linter.Config} */
@@ -109,7 +118,9 @@ module.exports = {
 上述的代码意思是：是 `cjs` 文件，不是 `ts`，但是，又想要在**编辑器级别**，能探测到类型，所以使用这种 `jsdoc` 的方式。是最佳实践，以后可以尝试。
 
 ### tsconfig
+
 #### 主要是 typescript-config 过程中遇到的一些问题
+
 - "noEmit": true  
   在工程项目的配置中，目前都是配合第三方打包器，所以不需要 `tsc` 来产生实际 `js` 代码，`libs` 则需要产生代码。
 
@@ -118,19 +129,22 @@ module.exports = {
   举例来说：`"build": "tsup src/index.ts --format esm,cjs --dts"`，`tsup` 需要显示的申明 `--dts`，而不会去读 `declaration`。
 
 - "module": "NodeNext"  
-  这个有点类似于自动选择。  
-  1. 如果是 `*.mts`，则输出成 `*.mjs`
-  2. 若果是 `*.cts` ，则输出 `*.cjs`
-  3. 如果单纯是 `*.ts`，则看 `package.json` 里的配置，默认是 `commonjs`  
-  
-  现代的 `libs` 一般都是需要指定**双格式输出**。
+  这个有点类似于自动选择。
+
+    1. 如果是 `*.mts`，则输出成 `*.mjs`
+    2. 若果是 `*.cts` ，则输出 `*.cjs`
+    3. 如果单纯是 `*.ts`，则看 `package.json` 里的配置，默认是 `commonjs`
+
+    现代的 `libs` 一般都是需要指定**双格式输出**。
 
 ### 关于 dayjs 和 momentjs
+
 主要是 `tree shaking` 的支持。`momentjs` 用 `commonjs` 设计，`require` 仅仅是**普通函数变量申明**。而不是像 `import` 这种语法层面的词法。  
 所以 `require` **不能作为可靠标记**，进一步说就不能确认完整的上下文链路，然后决定哪些该被舍弃。  
 `动态 import` 的动态部分虽然也不能被 `tree shaking`，但是 `import` 是**可靠标记**，所以静态的上下文分析是可靠的，至少动态部分忽略就可以了。
 
 ### exports 的定义问题
+
 ```
 "exports": {
     ".": {
@@ -145,15 +159,16 @@ module.exports = {
   "types": "./dist/index.d.ts",
 ```
 
-上面两组看似重复，实际是为了兼容问题。*node v12* 后才支持 `exports` 字段
+上面两组看似重复，实际是为了兼容问题。_node v12_ 后才支持 `exports` 字段
 
 ### turbo 相关
+
 > `turbo` 最核心的优势是：**多包的、基于任务级别的增量构建**。
 
 `lerna`、`pnpm` 的增量构建比较繁琐，需要手动指定、额外脚本。  
 `webpack`、`rollup` 的增量针对单包设计。
 
-而且，其他的框架**没有任务的概念**。*比如：cicd、lint*。  
+而且，其他的框架**没有任务的概念**。_比如：cicd、lint_。  
 这些，`turbo` 都是可以单独指定任务，触发缓存的。
 
 ```
@@ -166,11 +181,13 @@ module.exports = {
 > 关于 turbo 的构建实践
 
 **最佳实践：**
+
 1. 在根目录执行 `pnpm turbo run build` 或 `turbo run build`，Turbo 会自动扫描工作区中所有定义了 `build` 脚本的包，并行执行构建。
 2. 对于源码、依赖、配置均未变化的包，Turbo 会直接从缓存中恢复之前的 `dist/**`，跳过实际构建，大幅加速本地和 CI 构建。
 3. 如需单包构建，可使用过滤器：`pnpm turbo run build --filter=packages/format` 或按包名过滤。
 
 > Turborepo 任务关键配置解释
+
 - **dependsOn**: 用于声明任务依赖。`"^build"` 表示当前包在执行 `build` 前，会先执行所有上游依赖包的 `build`，保证依赖包先产出最新产物。
 - **inputs**: 定义任务输入文件集合，用于生成输入哈希。`["$TURBO_DEFAULT$", ".env*"]` 包含源码、配置文件、锁文件、依赖版本等，只有输入变化时才触发重新执行。
 - **outputs**: 定义任务产出文件路径，用于缓存和还原。`["dist/**"]` 表示将 `dist` 目录下的所有文件作为缓存目标，下次输入哈希相同则直接从缓存恢复，无需重新构建。
@@ -178,7 +195,8 @@ module.exports = {
 ---
 
 ## TODO
+
 1. format 里关于 turbo 的部分
 2. 接一个文档库，并且运行
-4. 测试
-6. turbo 的 "lint": {}, lint 任务检查，还没搞
+3. 测试
+4. turbo 的 "lint": {}, lint 任务检查，还没搞

@@ -20,7 +20,7 @@ pnpm add -D @nx-utils/prettier-config prettier
 
 ```json
 {
-  "prettier": "@nx-utils/prettier-config"
+	"prettier": "@nx-utils/prettier-config"
 }
 ```
 
@@ -30,9 +30,9 @@ pnpm add -D @nx-utils/prettier-config prettier
 
 ```js
 module.exports = {
-  ...require('@nx-utils/prettier-config'),
-  // 在这里可以添加自定义配置来覆盖默认设置
-  semi: true
+	...require('@nx-utils/prettier-config'),
+	// 在这里可以添加自定义配置来覆盖默认设置
+	semi: true,
 };
 ```
 
@@ -52,4 +52,4 @@ module.exports = {
 ## 包含的插件
 
 - [@ianvs/prettier-plugin-sort-imports](https://github.com/ianvs/prettier-plugin-sort-imports) - 用于排序导入语句
-- [prettier-plugin-packagejson](https://github.com/matzkoh/prettier-plugin-packagejson) - 用于格式化package.json文件 
+- [prettier-plugin-packagejson](https://github.com/matzkoh/prettier-plugin-packagejson) - 用于格式化package.json文件

@@ -11,7 +11,7 @@ sidebar_position: 1
 
 - ✅ **类型安全** - 所有包都提供完整的 TypeScript 类型定义
 - ✅ **模块化设计** - 按需引入，支持 tree-shaking
-- ✅ **双格式支持** - 同时支持 ESM 和 CommonJS 
+- ✅ **双格式支持** - 同时支持 ESM 和 CommonJS
 - ✅ **测试支持** - 包含测试确保功能稳定
 - ✅ **轻量实现** - 核心功能保持轻量，避免不必要的复杂性
 
@@ -19,12 +19,12 @@ sidebar_position: 1
 
 NX Utils 包含以下几个独立的包：
 
-| 包名 | 描述 | 版本 |
-| --- | --- | --- |
-| [`@nx-utils/format`](/packages/format) | 数字和日期格式化工具 | ![npm](https://img.shields.io/npm/v/@nx-utils/format) |
+| 包名                                                         | 描述                 | 版本                                                             |
+| ------------------------------------------------------------ | -------------------- | ---------------------------------------------------------------- |
+| [`@nx-utils/format`](/packages/format)                       | 数字和日期格式化工具 | ![npm](https://img.shields.io/npm/v/@nx-utils/format)            |
 | [`@nx-utils/typescript-config`](/packages/typescript-config) | 共享 TypeScript 配置 | ![npm](https://img.shields.io/npm/v/@nx-utils/typescript-config) |
-| [`@nx-utils/eslint-config`](/packages/eslint-config) | 共享 ESLint 配置 | ![npm](https://img.shields.io/npm/v/@nx-utils/eslint-config) |
-| [`@nx-utils/prettier-config`](/packages/prettier-config) | 共享 Prettier 配置 | ![npm](https://img.shields.io/npm/v/@nx-utils/prettier-config) |
+| [`@nx-utils/eslint-config`](/packages/eslint-config)         | 共享 ESLint 配置     | ![npm](https://img.shields.io/npm/v/@nx-utils/eslint-config)     |
+| [`@nx-utils/prettier-config`](/packages/prettier-config)     | 共享 Prettier 配置   | ![npm](https://img.shields.io/npm/v/@nx-utils/prettier-config)   |
 
 ## 快速开始
 
@@ -44,13 +44,13 @@ pnpm add @nx-utils/format
 开始使用：
 
 ```typescript
-import { formatNumber, formatDate } from '@nx-utils/format';
+import { formatDate, formatNumber } from '@nx-utils/format';
 
 // 格式化数字
-formatNumber(1234.56);  // "1,234.56"
+formatNumber(1234.56); // "1,234.56"
 
 // 格式化日期
-formatDate(new Date());  // "2023-04-25 14:30:45"
+formatDate(new Date()); // "2023-04-25 14:30:45"
 ```
 
 ## 项目架构
