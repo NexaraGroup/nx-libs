@@ -1,5 +1,8 @@
+/* eslint-disable */
 import Head from '@docusaurus/Head';
 import Layout from '@theme/Layout';
+/* eslint-enable */
+
 import clsx from 'clsx';
 import React from 'react';
 

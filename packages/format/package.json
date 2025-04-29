@@ -1,35 +1,35 @@
 {
-  "name": "@nx-utils/format",
-  "version": "0.0.0",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "sideEffects": false,
-  "license": "MIT",
-  "exports": {
-    ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    }
-  },
-  "files": [
-    "dist/**"
-  ],
-  "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts",
-    "dev": "tsup src/index.ts --format esm,cjs --watch --dts",
-    "lint": "eslint \"src/**/*.ts\"",
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
-  },
-  "peerDependencies": {
-    "big.js": "^6.0.0",
-    "dayjs": "^1.11.0"
-  },
-  "devDependencies": {
-    "@nx-utils/eslint-config": "workspace:*",
-    "@nx-utils/typescript-config": "workspace:*",
-    "@types/big.js": "^6.0.0",
-    "tsup": "^8.0.0"
-  }
+	"name": "@nx-utils/format",
+	"version": "0.0.0",
+	"license": "MIT",
+	"sideEffects": false,
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.js",
+			"types": "./dist/index.d.ts"
+		}
+	},
+	"main": "./dist/index.js",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
+	"files": [
+		"dist/**"
+	],
+	"scripts": {
+		"build": "tsup src/index.ts --format esm,cjs --dts",
+		"clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+		"dev": "tsup src/index.ts --format esm,cjs --watch --dts",
+		"lint": "eslint \"src/**/*.ts\""
+	},
+	"devDependencies": {
+		"@nx-utils/eslint-config": "workspace:*",
+		"@nx-utils/typescript-config": "workspace:*",
+		"@types/big.js": "^6.0.0",
+		"tsup": "^8.0.0"
+	},
+	"peerDependencies": {
+		"big.js": "^6.0.0",
+		"dayjs": "^1.11.0"
+	}
 }
