@@ -144,16 +144,13 @@ module.exports = {
 `动态 import` 的动态部分虽然也不能被 `tree shaking`，但是 `import` 是**可靠标记**，所以静态的上下文分析是可靠的，至少动态部分忽略就可以了。
 
 ### exports 的定义问题
-
 ```
 "exports": {
     ".": {
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.js"
     }
   },
-
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -191,6 +188,12 @@ module.exports = {
 - **dependsOn**: 用于声明任务依赖。`"^build"` 表示当前包在执行 `build` 前，会先执行所有上游依赖包的 `build`，保证依赖包先产出最新产物。
 - **inputs**: 定义任务输入文件集合，用于生成输入哈希。`["$TURBO_DEFAULT$", ".env*"]` 包含源码、配置文件、锁文件、依赖版本等，只有输入变化时才触发重新执行。
 - **outputs**: 定义任务产出文件路径，用于缓存和还原。`["dist/**"]` 表示将 `dist` 目录下的所有文件作为缓存目标，下次输入哈希相同则直接从缓存恢复，无需重新构建。
+
+> 关于上面3条，我自己测的表现。反正和上面3条表述的是一样的
+1. `turbo run build`，它会去找命名空间下所有一级 `package.json` 的 `build` 命令，这是默认表现
+2. 然后回产生全部的运行结果
+3. 关于第二点，它其实就是所有 `build` 命令都执行，然后产生**实体文件**和 `.turbo` 缓存文件夹
+4. 这个时候，如果一个项目的产出是 `build` 文件夹，不和 `outputs` 的配置一样，如果删除了这个文件夹，即使输入没变，也不会触发还原
 
 ---
 

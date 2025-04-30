@@ -79,8 +79,8 @@ function formatValidNumber(
 
 		// 添加千分位分隔符
 		if (addThousandsSeparator) {
-			const parts = formatted.split('.');
-			parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+			const parts = formatted.split('.') ?? [];
+			parts[0] = (parts[0] ?? '').replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 			formatted = parts.join('.');
 		}
 

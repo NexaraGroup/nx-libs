@@ -1,3 +1,5 @@
 {
-  "extends": "@nx-utils/typescript-config/library.json"
+  "extends": "@nx-utils/typescript-config/library.json",
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.spec.ts"]
 }

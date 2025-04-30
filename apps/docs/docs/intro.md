@@ -17,14 +17,14 @@ sidebar_position: 1
 
 ## 包概览
 
-NX Utils 包含以下几个独立的包：
+<!-- NX Utils 包含以下几个独立的包：
 
 | 包名                                                         | 描述                 | 版本                                                             |
 | ------------------------------------------------------------ | -------------------- | ---------------------------------------------------------------- |
 | [`@nx-utils/format`](/packages/format)                       | 数字和日期格式化工具 | ![npm](https://img.shields.io/npm/v/@nx-utils/format)            |
 | [`@nx-utils/typescript-config`](/packages/typescript-config) | 共享 TypeScript 配置 | ![npm](https://img.shields.io/npm/v/@nx-utils/typescript-config) |
 | [`@nx-utils/eslint-config`](/packages/eslint-config)         | 共享 ESLint 配置     | ![npm](https://img.shields.io/npm/v/@nx-utils/eslint-config)     |
-| [`@nx-utils/prettier-config`](/packages/prettier-config)     | 共享 Prettier 配置   | ![npm](https://img.shields.io/npm/v/@nx-utils/prettier-config)   |
+| [`@nx-utils/prettier-config`](/packages/prettier-config)     | 共享 Prettier 配置   | ![npm](https://img.shields.io/npm/v/@nx-utils/prettier-config)   | -->
 
 ## 快速开始
 
