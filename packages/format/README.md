@@ -1,4 +1,4 @@
-# @nx-utils/format
+# @nxlibs/format
 
 格式化工具集合，提供高质量的数字和日期格式化功能，专注于安全性、一致性和易用性。
 
@@ -13,7 +13,7 @@
 ## 安装
 
 ```bash
-npm install @nx-utils/format
+npm install @nxlibs/format
 ```
 
 本包有两个对等依赖(peerDependencies)，需要同时安装：
@@ -29,7 +29,7 @@ npm install big.js dayjs
 ### 基本用法
 
 ```ts
-import { formatNumber } from '@nx-utils/format';
+import { formatNumber } from '@nxlibs/format';
 
 // 基本使用
 formatNumber(1234.56); // "1,234.56"
@@ -79,7 +79,7 @@ formatNumber(1234.56, {
 ### 基本用法
 
 ```ts
-import { formatDate } from '@nx-utils/format';
+import { formatDate } from '@nxlibs/format';
 
 // 当前日期
 formatDate(new Date()); // "2023-06-15 14:30:25"

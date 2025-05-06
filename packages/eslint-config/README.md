@@ -1,4 +1,4 @@
-# @nx-utils/eslint-config
+# @nxlibs/eslint-config
 
 ESLint配置集合，包含基础TypeScript、React和Next.js配置，采用分层设计提供更灵活的代码规范控制。
 
@@ -6,13 +6,13 @@ ESLint配置集合，包含基础TypeScript、React和Next.js配置，采用分�
 
 ```bash
 # npm
-npm install --save-dev @nx-utils/eslint-config eslint
+npm install --save-dev @nxlibs/eslint-config eslint
 
 # pnpm
-pnpm add -D @nx-utils/eslint-config eslint
+pnpm add -D @nxlibs/eslint-config eslint
 
 # yarn
-yarn add -D @nx-utils/eslint-config eslint
+yarn add -D @nxlibs/eslint-config eslint
 ```
 
 ## 特性
@@ -32,9 +32,9 @@ yarn add -D @nx-utils/eslint-config eslint
 ```js
 // .eslintrc.js
 module.exports = {
-	extends: ['@nx-utils/eslint-config'], // 默认就是引入 base
+	extends: ['@nxlibs/eslint-config'], // 默认就是引入 base
 	// 或明确指定基础配置
-	// extends: ['@nx-utils/eslint-config/base'],
+	// extends: ['@nxlibs/eslint-config/base'],
 	rules: {
 		// 自定义规则
 	},
@@ -48,7 +48,7 @@ module.exports = {
 ```js
 // .eslintrc.js
 module.exports = {
-	extends: ['@nx-utils/eslint-config/react'],
+	extends: ['@nxlibs/eslint-config/react'],
 	rules: {
 		// 自定义规则
 	},
@@ -62,7 +62,7 @@ module.exports = {
 ```js
 // .eslintrc.js
 module.exports = {
-	extends: ['@nx-utils/eslint-config/next'],
+	extends: ['@nxlibs/eslint-config/next'],
 	rules: {
 		// 自定义规则
 	},
@@ -141,7 +141,7 @@ base（基础） → react（React扩展） → next（Next.js扩展）
 ```js
 // .eslintrc.js
 module.exports = {
-	extends: ['@nx-utils/eslint-config/react'],
+	extends: ['@nxlibs/eslint-config/react'],
 	rules: {
 		// 覆盖内置规则
 		'@typescript-eslint/no-explicit-any': 'error',

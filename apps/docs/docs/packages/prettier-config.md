@@ -4,19 +4,19 @@ sidebar_position: 3
 
 # Prettier 配置
 
-`@nx-utils/prettier-config` 提供共享的 Prettier 配置，帮助团队保持一致的代码格式风格。
+`@nxlibs/prettier-config` 提供共享的 Prettier 配置，帮助团队保持一致的代码格式风格。
 
 ## 安装
 
 ```bash
 # npm
-npm install --save-dev @nx-utils/prettier-config prettier
+npm install --save-dev @nxlibs/prettier-config prettier
 
 # pnpm
-pnpm add -D @nx-utils/prettier-config prettier
+pnpm add -D @nxlibs/prettier-config prettier
 
 # yarn
-yarn add -D @nx-utils/prettier-config prettier
+yarn add -D @nxlibs/prettier-config prettier
 ```
 
 ## 使用方法
@@ -29,7 +29,7 @@ yarn add -D @nx-utils/prettier-config prettier
 
 ```json
 {
-	"prettier": "@nx-utils/prettier-config"
+	"prettier": "@nxlibs/prettier-config"
 }
 ```
 
@@ -39,7 +39,7 @@ yarn add -D @nx-utils/prettier-config prettier
 
 ```js
 module.exports = {
-	...require('@nx-utils/prettier-config'),
+	...require('@nxlibs/prettier-config'),
 	// 在这里可以添加自定义配置来覆盖默认设置
 	semi: true,
 };
@@ -114,7 +114,7 @@ npm install --save-dev eslint-config-prettier
 ```js
 // .prettierrc.js
 module.exports = {
-	...require('@nx-utils/prettier-config'),
+	...require('@nxlibs/prettier-config'),
 
 	// 根据项目需要覆盖配置
 	semi: true, // 使用分号
@@ -126,5 +126,5 @@ module.exports = {
 
 ## 相关链接
 
-- [GitHub仓库](https://github.com/NexaraGroup/nx-utils)
+- [GitHub仓库](https://github.com/NexaraGroup/nx-libs)
 - [Prettier官方文档](https://prettier.io/docs/en/)

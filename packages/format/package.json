@@ -1,5 +1,5 @@
 {
-	"name": "@nx-utils/format",
+	"name": "@nxlibs/format",
 	"version": "0.0.0",
 	"license": "MIT",
 	"sideEffects": false,
@@ -21,8 +21,8 @@
 		"lint": "eslint \"src/**/*.ts\""
 	},
 	"devDependencies": {
-		"@nx-utils/eslint-config": "workspace:*",
-		"@nx-utils/typescript-config": "workspace:*",
+		"@nxlibs/eslint-config": "workspace:*",
+		"@nxlibs/typescript-config": "workspace:*",
 		"@types/big.js": "^6.0.0",
 		"tsup": "^8.0.0"
 	},

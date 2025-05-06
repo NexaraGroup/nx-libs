@@ -4,15 +4,15 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 // With JSDoc @type annotations, IDEs can provide config autocompletion
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
-	title: 'NX Utils',
+	title: 'NX libs',
 	tagline: '前端工具库集合',
-	url: 'https://nx-utils.dev',
+	url: 'https://nx-libs.dev',
 	baseUrl: '/',
 	onBrokenLinks: 'throw',
 	onBrokenMarkdownLinks: 'warn',
 	favicon: 'img/favicon.ico',
 	organizationName: 'NexaraGroup', // GitHub组织/用户名
-	projectName: 'nx-utils', // 仓库名
+	projectName: 'nx-libs', // 仓库名
 
 	// SEO 相关配置
 	noIndex: false, // 允许搜索引擎索引
@@ -26,7 +26,7 @@ module.exports = {
 					path: 'docs',
 					routeBasePath: 'docs',
 					sidebarPath: require.resolve('./sidebars.js'),
-					editUrl: 'https://github.com/NexaraGroup/nx-utils/edit/main/apps/docs/',
+					editUrl: 'https://github.com/NexaraGroup/nx-libs/edit/main/apps/docs/',
 				},
 				blog: false, // 禁用博客功能
 				theme: {
@@ -40,9 +40,9 @@ module.exports = {
 		/** @type {import('@docusaurus/preset-classic').ThemeConfig} */
 		({
 			navbar: {
-				title: 'NX Utils',
+				title: 'NX libs',
 				logo: {
-					alt: 'NX Utils Logo',
+					alt: 'NX libs Logo',
 					src: 'img/logo.jpg',
 				},
 				items: [
@@ -67,12 +67,12 @@ module.exports = {
 						items: [
 							{
 								label: '问题反馈',
-								href: 'https://github.com/NexaraGroup/nx-utils/issues',
+								href: 'https://github.com/NexaraGroup/nx-libs/issues',
 							},
 						],
 					},
 				],
-				copyright: `Copyright © ${new Date().getFullYear()} NX Utils. 使用 Docusaurus 构建。`,
+				copyright: `Copyright © ${new Date().getFullYear()} NX libs. 使用 Docusaurus 构建。`,
 			},
 			prism: {
 				theme: lightCodeTheme,
@@ -85,10 +85,10 @@ module.exports = {
 				respectPrefersColorScheme: true,
 			},
 			metadata: [
-				{ name: 'keywords', content: '前端工具库, nx-utils, 工具集合, 开发工具' },
+				{ name: 'keywords', content: '前端工具库, nx-libs, 工具集合, 开发工具' },
 				{
 					name: 'description',
-					content: 'NX Utils 是一个前端工具库集合，提供各种实用的开发工具和配置。',
+					content: 'NX libs 是一个前端工具库集合，提供各种实用的开发工具和配置。',
 				},
 			],
 		}),

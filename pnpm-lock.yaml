@@ -14,10 +14,10 @@ importers:
       '@commitlint/config-conventional':
         specifier: ^19.8.0
         version: 19.8.0
-      '@nx-utils/eslint-config':
+      '@nxlibs/eslint-config':
         specifier: workspace:*
         version: link:packages/eslint-config
-      '@nx-utils/prettier-config':
+      '@nxlibs/prettier-config':
         specifier: workspace:*
         version: link:packages/prettier-config
       eslint:
@@ -111,10 +111,10 @@ importers:
         specifier: ^1.11.0
         version: 1.11.13
     devDependencies:
-      '@nx-utils/eslint-config':
+      '@nxlibs/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@nx-utils/typescript-config':
+      '@nxlibs/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@types/big.js':

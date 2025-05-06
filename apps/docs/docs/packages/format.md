@@ -4,19 +4,19 @@ sidebar_position: 4
 
 # 格式化工具
 
-`@nx-utils/format` 提供可靠的数字和日期格式化功能，专注于类型安全和易用性。
+`@nxlibs/format` 提供可靠的数字和日期格式化功能，专注于类型安全和易用性。
 
 ## 安装
 
 ```bash
 # npm
-npm install @nx-utils/format
+npm install @nxlibs/format
 
 # pnpm
-pnpm add @nx-utils/format
+pnpm add @nxlibs/format
 
 # yarn
-yarn add @nx-utils/format
+yarn add @nxlibs/format
 ```
 
 同时需要安装对等依赖：
@@ -32,7 +32,7 @@ npm install big.js dayjs
 `formatNumber` 函数提供可靠且一致的数字格式化，使用 big.js 处理精度问题。
 
 ```ts
-import { formatNumber } from '@nx-utils/format';
+import { formatNumber } from '@nxlibs/format';
 
 // 基本使用
 formatNumber(1234.56); // "1,234.56"
@@ -53,7 +53,7 @@ formatNumber(0.1 + 0.2); // "0.3" (而不是 "0.30000000000000004")
 `formatDate` 函数提供灵活的日期格式化能力，基于 dayjs 库实现。
 
 ```ts
-import { formatDate } from '@nx-utils/format';
+import { formatDate } from '@nxlibs/format';
 
 // 当前日期
 formatDate(new Date()); // "2023-06-15 14:30:25"
@@ -175,6 +175,6 @@ formatDate(new Date(), {
 
 ## 相关链接
 
-- [问题反馈](https://github.com/NexaraGroup/nx-utils/issues)
+- [问题反馈](https://github.com/NexaraGroup/nx-libs/issues)
 - [big.js](https://github.com/MikeMcl/big.js/) - 用于精确数值计算
 - [dayjs](https://day.js.org/) - 用于日期处理和格式化

@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # 安装
 
-NX Utils 是一个模块化的工具集合，每个功能都被封装在独立的包中。你可以只安装你需要的包，而不必引入整个库。
+NX libs 是一个模块化的工具集合，每个功能都被封装在独立的包中。你可以只安装你需要的包，而不必引入整个库。
 
 ## 安装单个包
 
@@ -14,13 +14,13 @@ NX Utils 是一个模块化的工具集合，每个功能都被封装在独立�
 
 ```bash
 # npm
-npm install @nx-utils/format
+npm install @nxlibs/format
 
 # yarn
-yarn add @nx-utils/format
+yarn add @nxlibs/format
 
 # pnpm
-pnpm add @nx-utils/format
+pnpm add @nxlibs/format
 ```
 
 注意：Format 包有以下对等依赖(peerDependencies)：
@@ -35,13 +35,13 @@ npm install big.js dayjs
 
 ```bash
 # npm
-npm install -D @nx-utils/typescript-config
+npm install -D @nxlibs/typescript-config
 
 # yarn
-yarn add -D @nx-utils/typescript-config
+yarn add -D @nxlibs/typescript-config
 
 # pnpm
-pnpm add -D @nx-utils/typescript-config
+pnpm add -D @nxlibs/typescript-config
 ```
 
 ### ESLint 配置
@@ -50,13 +50,13 @@ pnpm add -D @nx-utils/typescript-config
 
 ```bash
 # npm
-npm install -D @nx-utils/eslint-config
+npm install -D @nxlibs/eslint-config
 
 # yarn
-yarn add -D @nx-utils/eslint-config
+yarn add -D @nxlibs/eslint-config
 
 # pnpm
-pnpm add -D @nx-utils/eslint-config
+pnpm add -D @nxlibs/eslint-config
 ```
 
 ### Prettier 配置
@@ -65,13 +65,13 @@ pnpm add -D @nx-utils/eslint-config
 
 ```bash
 # npm
-npm install -D @nx-utils/prettier-config
+npm install -D @nxlibs/prettier-config
 
 # yarn
-yarn add -D @nx-utils/prettier-config
+yarn add -D @nxlibs/prettier-config
 
 # pnpm
-pnpm add -D @nx-utils/prettier-config
+pnpm add -D @nxlibs/prettier-config
 ```
 
 ## 一次性安装所有包
@@ -80,16 +80,16 @@ pnpm add -D @nx-utils/prettier-config
 
 ```bash
 # npm
-npm install @nx-utils/format
-npm install -D @nx-utils/typescript-config @nx-utils/eslint-config @nx-utils/prettier-config
+npm install @nxlibs/format
+npm install -D @nxlibs/typescript-config @nxlibs/eslint-config @nxlibs/prettier-config
 
 # yarn
-yarn add @nx-utils/format
-yarn add -D @nx-utils/typescript-config @nx-utils/eslint-config @nx-utils/prettier-config
+yarn add @nxlibs/format
+yarn add -D @nxlibs/typescript-config @nxlibs/eslint-config @nxlibs/prettier-config
 
 # pnpm
-pnpm add @nx-utils/format
-pnpm add -D @nx-utils/typescript-config @nx-utils/eslint-config @nx-utils/prettier-config
+pnpm add @nxlibs/format
+pnpm add -D @nxlibs/typescript-config @nxlibs/eslint-config @nxlibs/prettier-config
 ```
 
 ## 版本兼容性

@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # 贡献指南
 
-感谢你对 NX Utils 项目的关注！我们欢迎社区成员参与贡献，无论是修复 bug、改进文档还是添加新功能。
+感谢你对 NX libs 项目的关注！我们欢迎社区成员参与贡献，无论是修复 bug、改进文档还是添加新功能。
 
 ## 开发准备
 
@@ -17,8 +17,8 @@ sidebar_position: 2
 
 ```bash
 # 克隆仓库
-git clone https://github.com/nx-utils/nx-utils.git
-cd nx-utils
+git clone https://github.com/nx-libs/nx-libs.git
+cd nx-libs
 
 # 安装依赖
 pnpm install
@@ -126,5 +126,5 @@ cd packages/format
 pnpm link --global
 
 # 在测试项目中
-pnpm link --global @nx-utils/format
+pnpm link --global @nxlibs/format
 ```

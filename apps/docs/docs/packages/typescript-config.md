@@ -4,19 +4,19 @@ sidebar_position: 1
 
 # TypeScript 配置
 
-`@nx-utils/typescript-config` 提供了一组优化的 TypeScript 配置，简化项目设置并统一代码规范。
+`@nxlibs/typescript-config` 提供了一组优化的 TypeScript 配置，简化项目设置并统一代码规范。
 
 ## 安装
 
 ```bash
 # npm
-npm install --save-dev @nx-utils/typescript-config
+npm install --save-dev @nxlibs/typescript-config
 
 # pnpm
-pnpm add -D @nx-utils/typescript-config
+pnpm add -D @nxlibs/typescript-config
 
 # yarn
-yarn add -D @nx-utils/typescript-config
+yarn add -D @nxlibs/typescript-config
 ```
 
 ## 可用配置
@@ -27,7 +27,7 @@ yarn add -D @nx-utils/typescript-config
 
 ```json
 {
-	"extends": "@nx-utils/typescript-config/base.json"
+	"extends": "@nxlibs/typescript-config/base.json"
 }
 ```
 
@@ -37,7 +37,7 @@ yarn add -D @nx-utils/typescript-config
 
 ```json
 {
-	"extends": "@nx-utils/typescript-config/react-library.json"
+	"extends": "@nxlibs/typescript-config/react-library.json"
 }
 ```
 
@@ -47,7 +47,7 @@ yarn add -D @nx-utils/typescript-config
 
 ```json
 {
-	"extends": "@nx-utils/typescript-config/nextjs.json"
+	"extends": "@nxlibs/typescript-config/nextjs.json"
 }
 ```
 
@@ -57,7 +57,7 @@ yarn add -D @nx-utils/typescript-config
 
 ```json
 {
-	"extends": "@nx-utils/typescript-config/library.json"
+	"extends": "@nxlibs/typescript-config/library.json"
 }
 ```
 
@@ -73,7 +73,7 @@ yarn add -D @nx-utils/typescript-config
 
 ```json
 {
-	"extends": "@nx-utils/typescript-config/base.json",
+	"extends": "@nxlibs/typescript-config/base.json",
 	"compilerOptions": {
 		"rootDir": "src",
 		"outDir": "dist"
@@ -87,7 +87,7 @@ React 项目示例：
 
 ```json
 {
-	"extends": "@nx-utils/typescript-config/react-library.json",
+	"extends": "@nxlibs/typescript-config/react-library.json",
 	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {
@@ -104,7 +104,7 @@ Next.js 项目示例：
 
 ```json
 {
-	"extends": "@nx-utils/typescript-config/nextjs.json",
+	"extends": "@nxlibs/typescript-config/nextjs.json",
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
 	"exclude": ["node_modules"]
 }
@@ -114,7 +114,7 @@ TypeScript 库示例：
 
 ```json
 {
-	"extends": "@nx-utils/typescript-config/library.json",
+	"extends": "@nxlibs/typescript-config/library.json",
 	"compilerOptions": {
 		"paths": {
 			"@/*": ["./src/*"]
@@ -150,7 +150,7 @@ TypeScript 库示例：
 
 ```json
 {
-	"extends": "@nx-utils/typescript-config/base.json",
+	"extends": "@nxlibs/typescript-config/base.json",
 	"compilerOptions": {
 		// 自定义配置
 		"target": "ES2020", // 修改目标
@@ -189,5 +189,5 @@ TypeScript 库示例：
 
 ## 相关链接
 
-- [GitHub仓库](https://github.com/NexaraGroup/nx-utils)
+- [GitHub仓库](https://github.com/NexaraGroup/nx-libs)
 - [TypeScript官方文档](https://www.typescriptlang.org/docs/)

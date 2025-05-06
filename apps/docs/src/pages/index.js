@@ -16,10 +16,10 @@ function HomepageHeader() {
 			<div className="container">
 				<div className={styles.heroContent}>
 					<div className={styles.heroLeft}>
-						<h1 className={styles.heroTitle}>NX Utils</h1>
+						<h1 className={styles.heroTitle}>NX libs</h1>
 						<p className={styles.heroTagline}>轻松管理和开发大型前端项目</p>
 						<p className={styles.heroDescription}>
-							nx-utils 是一套轻量级工具集，旨在改善使用 Nx
+							nx-libs 是一套轻量级工具集，旨在改善使用 Nx
 							开发大型应用时的体验。提供了自动化API客户端生成、
 							多环境变量管理以及构建优化等多种功能。
 						</p>
@@ -65,7 +65,7 @@ function HomepageHeader() {
 										<span className={styles.keyword}>import</span> {'{'}{' '}
 										formatNumber, formatDate {'}'}{' '}
 										<span className={styles.keyword}>from</span>{' '}
-										<span className={styles.string}>'@nx-utils/format'</span>;
+										<span className={styles.string}>'@nxlibs/format'</span>;
 									</div>
 									<br />
 									<div className={styles.codeLine}>
@@ -106,22 +106,22 @@ function HomepageHeader() {
 function PackageSection() {
 	const packages = [
 		{
-			name: '@nx-utils/format',
+			name: '@nxlibs/format',
 			description: '数字和日期格式化工具',
 			link: '/docs/packages/format',
 		},
 		{
-			name: '@nx-utils/typescript-config',
+			name: '@nxlibs/typescript-config',
 			description: '共享 TypeScript 配置',
 			link: '/docs/packages/typescript-config',
 		},
 		{
-			name: '@nx-utils/eslint-config',
+			name: '@nxlibs/eslint-config',
 			description: '共享 ESLint 配置',
 			link: '/docs/packages/eslint-config',
 		},
 		{
-			name: '@nx-utils/prettier-config',
+			name: '@nxlibs/prettier-config',
 			description: '共享 Prettier 配置',
 			link: '/docs/packages/prettier-config',
 		},
@@ -153,13 +153,13 @@ export default function Home() {
 	return (
 		<Layout
 			title="轻松管理和开发大型前端项目"
-			description="nx-utils 是一套轻量级工具集，旨在改善使用 Nx 开发大型应用时的体验"
+			description="nx-libs 是一套轻量级工具集，旨在改善使用 Nx 开发大型应用时的体验"
 		>
 			<Head>
-				<meta property="og:title" content="NX Utils - 轻松管理和开发大型前端项目" />
+				<meta property="og:title" content="NX libs - 轻松管理和开发大型前端项目" />
 				<meta
 					property="og:description"
-					content="nx-utils 是一套轻量级工具集，旨在改善使用 Nx 开发大型应用时的体验"
+					content="nx-libs 是一套轻量级工具集，旨在改善使用 Nx 开发大型应用时的体验"
 				/>
 			</Head>
 			<HomepageHeader />

@@ -4,12 +4,12 @@ sidebar_position: 1
 
 # Monorepo 结构
 
-NX Utils 使用 monorepo 结构组织代码，基于 pnpm workspace 和 Turborepo 构建。这种结构使我们能够在一个代码库中管理多个相关但独立的包，同时共享配置和工具。
+NX libs 使用 monorepo 结构组织代码，基于 pnpm workspace 和 Turborepo 构建。这种结构使我们能够在一个代码库中管理多个相关但独立的包，同时共享配置和工具。
 
 ## 目录结构
 
 ```
-nx-utils/
+nx-libs/
 ├── apps/                   # 应用程序
 │   ├── docs/               # 文档网站
 │   └── web/                # 示例网站（如果有）
@@ -62,7 +62,7 @@ packages:
 ```json
 {
 	"dependencies": {
-		"@nx-utils/format": "workspace:*"
+		"@nxlibs/format": "workspace:*"
 	}
 }
 ```
@@ -123,7 +123,7 @@ packages:
 
 ```json
 {
-	"name": "@nx-utils/new-package",
+	"name": "@nxlibs/new-package",
 	"version": "0.0.0",
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",

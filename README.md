@@ -1,4 +1,4 @@
-# @nx-utils
+# @nxlibs
 
 ## Git提交规范
 

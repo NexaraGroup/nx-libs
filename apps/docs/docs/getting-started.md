@@ -4,14 +4,14 @@ sidebar_position: 3
 
 # 快速开始
 
-本指南将帮助你快速上手使用 NX Utils 中的各个包。
+本指南将帮助你快速上手使用 NX libs 中的各个包。
 
 ## Format 包使用示例
 
 ### 数字格式化
 
 ```typescript
-import { formatNumber } from '@nx-utils/format';
+import { formatNumber } from '@nxlibs/format';
 
 // 基本使用
 formatNumber(1234.56); // "1,234.56"
@@ -36,7 +36,7 @@ formatNumber(1234.56, {
 ### 日期格式化
 
 ```typescript
-import { formatDate } from '@nx-utils/format';
+import { formatDate } from '@nxlibs/format';
 
 // 基本使用
 formatDate(new Date()); // "2023-04-25 14:30:45"
@@ -58,14 +58,14 @@ formatDate(new Date(), {
 1. 安装配置包：
 
 ```bash
-npm install -D @nx-utils/typescript-config
+npm install -D @nxlibs/typescript-config
 ```
 
 2. 创建或编辑 `tsconfig.json` 文件，扩展共享配置：
 
 ```json
 {
-	"extends": "@nx-utils/typescript-config/base.json",
+	"extends": "@nxlibs/typescript-config/base.json",
 	"compilerOptions": {
 		// 自定义选项...
 		"rootDir": "src",
@@ -80,7 +80,7 @@ npm install -D @nx-utils/typescript-config
 
 ```json
 {
-	"extends": "@nx-utils/typescript-config/react-library.json"
+	"extends": "@nxlibs/typescript-config/react-library.json"
 	// 其他自定义配置...
 }
 ```
@@ -89,7 +89,7 @@ npm install -D @nx-utils/typescript-config
 
 ```json
 {
-	"extends": "@nx-utils/typescript-config/nextjs.json"
+	"extends": "@nxlibs/typescript-config/nextjs.json"
 	// 其他自定义配置...
 }
 ```
@@ -99,14 +99,14 @@ npm install -D @nx-utils/typescript-config
 1. 安装配置包：
 
 ```bash
-npm install -D @nx-utils/eslint-config
+npm install -D @nxlibs/eslint-config
 ```
 
 2. 创建或编辑 `.eslintrc.js` 文件：
 
 ```js
 module.exports = {
-	extends: ['@nx-utils/eslint-config/base'],
+	extends: ['@nxlibs/eslint-config/base'],
 	// 自定义规则...
 };
 ```
@@ -115,7 +115,7 @@ module.exports = {
 
 ```js
 module.exports = {
-	extends: ['@nx-utils/eslint-config/react'],
+	extends: ['@nxlibs/eslint-config/react'],
 	// 自定义规则...
 };
 ```
@@ -125,19 +125,19 @@ module.exports = {
 1. 安装配置包：
 
 ```bash
-npm install -D @nx-utils/prettier-config
+npm install -D @nxlibs/prettier-config
 ```
 
 2. 创建或编辑 `.prettierrc.js` 文件：
 
 ```js
-module.exports = require('@nx-utils/prettier-config');
+module.exports = require('@nxlibs/prettier-config');
 ```
 
 如果你需要自定义一些规则，可以合并配置：
 
 ```js
-const baseConfig = require('@nx-utils/prettier-config');
+const baseConfig = require('@nxlibs/prettier-config');
 
 module.exports = {
 	...baseConfig,

@@ -1,3 +1,3 @@
 module.exports = {
-  ...require("@nx-utils/prettier-config"),
+	...require('@nxlibs/prettier-config'),
 };

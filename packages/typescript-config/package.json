@@ -1,11 +1,11 @@
 {
-  "name": "@nx-utils/typescript-config",
-  "version": "0.0.0",
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
-  "peerDependencies": {
-    "typescript": ">=5.0.0"
-  }
+	"name": "@nxlibs/typescript-config",
+	"version": "0.0.0",
+	"license": "MIT",
+	"peerDependencies": {
+		"typescript": ">=5.0.0"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
 }
