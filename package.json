@@ -20,7 +20,10 @@
 	"license": "MIT",
 	"scripts": {
 		"build": "turbo run build",
+		"changeset": "changeset",
 		"changeset:init": "changeset init",
+		"changeset:publish": "changeset publish",
+		"changeset:version": "changeset version",
 		"docs:build": "turbo run build:docs --filter=nx-libs-docs",
 		"docs:dev": "turbo run docs:dev --filter=nx-libs-docs",
 		"format": "prettier --write \"**/*.{ts,tsx,md}\"",
