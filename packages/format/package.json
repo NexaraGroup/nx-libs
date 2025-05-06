@@ -29,5 +29,8 @@
 	"peerDependencies": {
 		"big.js": "^6.0.0",
 		"dayjs": "^1.11.0"
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }
