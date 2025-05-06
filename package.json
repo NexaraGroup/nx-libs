@@ -20,6 +20,7 @@
 	"license": "MIT",
 	"scripts": {
 		"build": "turbo run build",
+		"changeset:init": "changeset init",
 		"docs:build": "turbo run build:docs --filter=nx-libs-docs",
 		"docs:dev": "turbo run docs:dev --filter=nx-libs-docs",
 		"format": "prettier --write \"**/*.{ts,tsx,md}\"",
@@ -27,6 +28,7 @@
 		"prepare": "husky"
 	},
 	"devDependencies": {
+		"@changesets/cli": "^2.29.3",
 		"@commitlint/cli": "^19.8.0",
 		"@commitlint/config-conventional": "^19.8.0",
 		"@nxlibs/eslint-config": "workspace:*",
