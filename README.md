@@ -1,33 +1,60 @@
 # @nxlibs
 
-## Git提交规范
+## libs 发布流程说明（Changesets + 手动发布）
 
-项目使用 `husky` 和 `commitlint` 强制执行 *Git 提交规范*：
+下面是一套典型的 `libs` 使用 `Changesets` 完成版本管理、日志生成、*Git Tag* 和 `npm` 发布的流程示例
 
-- **提交格式**:  
-  `<type>(<scope>): <subject>`  
-  例如: `feat(format): 添加数字格式化功能`
+### 1. 构建产物
+> 在发布前，先把所有包的产物编译到 `dist/`（或其它输出目录），确保发布的代码是最新的
+```bash
+pnpm turbo run build    # 默认命令，可定制，这里仅做示意
+```
 
-- **类型(type)**:
-    - `feat`: 新功能
-    - `fix`: 修复Bug
-    - `docs`: 文档更新
-    - `style`: 代码格式调整
-    - `refactor`: 重构
-    - `perf`: 性能优化
-    - `test`: 测试相关
-    - `chore`: 构建/工具相关
-    - `revert`: 代码回退
+### 2. 生成变更集（Changeset）
+> 交互式地选择要发布的包、*升级级别（patch/minor/major）*和变更描述（这个可以考虑想办法让 ai 做，TODO）
+> 注意 ↑↑↑ 说的选择，是选择本次修改的包，`changeset` 帮忙做其他关联包的升级检测
+> 默认一般推荐 `workspace:*`，这代表所有关联包都会调整并发布，这个是比较好的实践，也有 *~、^* 的方式，不展开讨论了
+> 变更集文件会记录在 `.changeset/` 目录下
+```bash
+pnpm changeset
+```
 
-- **范围(scope)**:  
-  可选，表示影响的包或模块，如 `docs`, `format`, `eslint-config` 等
+### 3. 提交代码 + 变更集
+> 把 `.changeset` 下的新文件以及相关源码/配置一起提交到分支：
+```bash
+git add .changeset packages/**/package.json
+git commit -m "chore: 添加 changeset 发布提案"
+git push origin <feature-branch>
+```
 
-- **预提交检查**:  
-  提交前会自动运行 *lint 检查*
+### 4. 版本 bump、生成 CHANGELOG 和打 Git Tag
+> 在主分支或 CI 上，执行：
+```bash
+pnpm changeset version
+```
+- **自动更新** 各包 `package.json` 的版本号  
+- **自动合并/新增** 根目录 `CHANGELOG.md`  
+- 需要**手动**提交上述改动
+- *版本 tag* 是自动打的，会根据子包名称和版本打，但是推送动作，需要*手动 push*
+
+### 5. 推送代码与 Tag
+```bash
+git push origin main --follow-tags
+```
+> 将 version 步骤生成的 commit 和所有新 Tag 一次性推到远程
+
+### 6. 发布到 npm
+> 最后一步，Changesets 会自动检测哪些包版本变更并发布：
+```bash
+pnpm changeset publish
+```
+- 对有变更的包依次执行 `npm publish`  
+- 发布完毕后，npm 库即可看到新版本
+需要注意的是，需要本地运行 `npm login` 完成登陆，并且确保 `publishConfig` 正确。如果有**部分包发布失败**，也没关系，调整后可以提交 *git commit*（不是功能的调整，所以不需要重新走流程），完成重新发布（`changeset` 会查询 `npm view 包名称 version`，来决定补发布动作）
 
 ---
 
-## Dev Memo
+## Memo
 
 ### 目录结构
 
@@ -193,64 +220,34 @@ module.exports = {
 
 ---
 
-## 发布流程说明（Changesets + 手动发布）
-
-下面是一套典型的 `libs` 使用 `Changesets` 完成版本管理、日志生成、*Git Tag* 和 `npm` 发布的流程示例
-
-### 1. 构建产物
-> 在发布前，先把所有包的产物编译到 `dist/`（或其它输出目录），确保发布的代码是最新的
-```bash
-pnpm turbo run build    # 默认命令，可定制，这里仅做示意
-```
-
-### 2. 生成变更集（Changeset）
-> 交互式地选择要发布的包、*升级级别（patch/minor/major）*和变更描述（这个可以考虑想办法让 ai 做，TODO）
-> 注意 ↑↑↑ 说的选择，是选择本次修改的包，`changeset` 帮忙做其他关联包的升级检测
-> 默认一般推荐 `workspace:*`，这代表所有关联包都会调整并发布，这个是比较好的实践，也有 *~、^* 的方式，不展开讨论了
-> 变更集文件会记录在 `.changeset/` 目录下
-```bash
-pnpm changeset
-```
-
-
-
-### 3. 提交代码 + 变更集
-> 把 `.changeset` 下的新文件以及相关源码/配置一起提交到分支：
-```bash
-git add .changeset packages/**/package.json
-git commit -m "chore: 添加 changeset 发布提案"
-git push origin <feature-branch>
-```
-
-### 4. 版本 bump、生成 CHANGELOG 和打 Git Tag
-> 在主分支或 CI 上，执行：
-```bash
-pnpm changeset version
-```
-- **自动更新** 各包 `package.json` 的版本号  
-- **自动合并/新增** 根目录 `CHANGELOG.md`  
-- 需要**手动**提交上述改动
-- *版本 tag* 是自动打的，会根据子包名称和版本打，但是推送动作，需要*手动 push*
-
-### 5. 推送代码与 Tag
-```bash
-git push origin main --follow-tags
-```
-> 将 version 步骤生成的 commit 和所有新 Tag 一次性推到远程
-
-### 6. 发布到 npm
-> 最后一步，Changesets 会自动检测哪些包版本变更并发布：
-```bash
-pnpm changeset publish
-```
-- 对有变更的包依次执行 `npm publish`  
-- 发布完毕后，npm 库即可看到新版本
-需要注意的是，需要本地运行 `npm login` 完成登陆，并且确保 `publishConfig` 正确。如果有**部分包发布失败**，也没关系，调整后可以提交 *git commit*（不是功能的调整，所以不需要重新走流程），完成重新发布（`changeset` 会查询 `npm view 包名称 version`，来决定补发布动作）
-
----
-
 ## TODO
 1. test case
 2. turbo 的 "lint": {}, lint 任务检查，还没搞
 3. git cicd
 4. ai changelog
+
+---
+## Git提交规范
+
+项目使用 `husky` 和 `commitlint` 强制执行 *Git 提交规范*：
+
+- **提交格式**:  
+  `<type>(<scope>): <subject>`  
+  例如: `feat(format): 添加数字格式化功能`
+
+- **类型(type)**:
+    - `feat`: 新功能
+    - `fix`: 修复Bug
+    - `docs`: 文档更新
+    - `style`: 代码格式调整
+    - `refactor`: 重构
+    - `perf`: 性能优化
+    - `test`: 测试相关
+    - `chore`: 构建/工具相关
+    - `revert`: 代码回退
+
+- **范围(scope)**:  
+  可选，表示影响的包或模块，如 `docs`, `format`, `eslint-config` 等
+
+- **预提交检查**:  
+  提交前会自动运行 *lint 检查*
