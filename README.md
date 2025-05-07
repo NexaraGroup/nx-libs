@@ -2,14 +2,13 @@
 
 ## Git提交规范
 
-项目使用husky和commitlint强制执行Git提交规范：
+项目使用 `husky` 和 `commitlint` 强制执行 *Git 提交规范*：
 
 - **提交格式**:  
   `<type>(<scope>): <subject>`  
   例如: `feat(format): 添加数字格式化功能`
 
 - **类型(type)**:
-
     - `feat`: 新功能
     - `fix`: 修复Bug
     - `docs`: 文档更新
@@ -21,10 +20,10 @@
     - `revert`: 代码回退
 
 - **范围(scope)**:  
-  可选，表示影响的包或模块，如`docs`, `format`, `eslint-config`等
+  可选，表示影响的包或模块，如 `docs`, `format`, `eslint-config` 等
 
 - **预提交检查**:  
-  提交前会自动运行lint检查
+  提交前会自动运行 *lint 检查*
 
 ---
 
@@ -43,12 +42,12 @@
 ### 依赖管理最佳实践
 
 - **工具与配置分离**  
-  核心工具(`eslint`, `typescript`, `prettier`等)只安装在根目录package.json  
-  配置文件放在专门的子包中(如`eslint-config`)  
+  核心工具(`eslint`, `typescript`, `prettier` 等)只安装在根目录 `package.json`  
+  配置文件放在专门的子包中(如 `eslint-config`)  
   业务包只依赖配置包，无需重复安装工具
 
 - **配置包的依赖声明**  
-  配置包应将对应工具声明为`peerDependencies`，例如：
+  配置包应将对应工具声明为 `peerDependencies`，例如：
 
     ```json
     // packages/typescript-config/package.json
@@ -60,7 +59,7 @@
     表明"此配置需与特定版本工具一起使用"
 
 - **类型定义位置**  
-  即使实际库是`peerDependencies`，其类型定义应放在`devDependencies`：
+  即使实际库是 `peerDependencies`，其类型定义应放在 `devDependencies`：
     ```json
     "peerDependencies": {
       "big.js": "^6.0.0"
@@ -69,7 +68,7 @@
       "@types/big.js": "^6.0.0"
     }
     ```
-    类型只在开发时使用，最终会被编译到`.d.ts`文件中
+    类型只在开发时使用，最终会被编译到 `.d.ts` 文件中
 
 ### peerDependencies
 
@@ -130,7 +129,6 @@ module.exports = {
 
 - "module": "NodeNext"  
   这个有点类似于自动选择  
-
     1. 如果是 `*.mts`，则输出成 `*.mjs`
     2. 若果是 `*.cts` ，则输出 `*.cjs`
     3. 如果单纯是 `*.ts`，则看 `package.json` 里的配置，默认是 `commonjs`
@@ -141,7 +139,7 @@ module.exports = {
 
 主要是 `tree shaking` 的支持。`momentjs` 用 `commonjs` 设计，`require` 仅仅是**普通函数变量申明**。而不是像 `import` 这种语法层面的词法  
 所以 `require` **不能作为可靠标记**，进一步说就不能确认完整的上下文链路，然后决定哪些该被舍弃  
-`动态 import` 的动态部分虽然也不能被 `tree shaking`，但是 `import` 是**可靠标记**，所以静态的上下文分析是可靠的，至少动态部分忽略就可以了
+*动态 import* 的动态部分虽然也不能被 `tree shaking`，但是 `import` 是**可靠标记**，所以静态的上下文分析是可靠的，至少动态部分忽略就可以了
 
 ### exports 的定义问题
 ```
@@ -164,7 +162,6 @@ module.exports = {
 
 `lerna`、`pnpm` 的增量构建比较繁琐，需要手动指定、额外脚本  
 `webpack`、`rollup` 的增量针对单包设计  
-
 而且，其他的框架**没有任务的概念**。_比如：cicd、lint_  
 这些，`turbo` 都是可以单独指定任务，触发缓存的
 
@@ -189,17 +186,16 @@ module.exports = {
 - **inputs**: 定义任务输入文件集合，用于生成输入哈希。`["$TURBO_DEFAULT$", ".env*"]` 包含源码、配置文件、锁文件、依赖版本等，只有输入变化时才触发重新执行
 - **outputs**: 定义任务产出文件路径，用于缓存和还原。`["dist/**"]` 表示将 `dist` 目录下的所有文件作为缓存目标，下次输入哈希相同则直接从缓存恢复，无需重新构建
 
-> 关于上面3条，我自己测的表现。反正和上面3条表述的是一样的
+> 关于上面3条，我自己测的表现。总体和上面3条表述的是一样的
 1. `turbo run build`，它会去找命名空间下所有一级 `package.json` 的 `build` 命令，这是默认表现
-2. 然后回产生全部的运行结果
-3. 关于第二点，它其实就是所有 `build` 命令都执行，然后产生**实体文件**和 `.turbo` 缓存文件夹
-4. 这个时候，如果一个项目的产出是 `build` 文件夹，不和 `outputs` 的配置一样，如果删除了这个文件夹，即使输入没变，也不会触发还原
+2. 然后回产生全部的运行结果（所有 `build` 命令都执行，然后产生**实体文件**和 `.turbo` 缓存文件夹）
+3. 这个时候，如果一个项目的产出是 `build` 文件夹，不和 `outputs` 的配置一样，如果删除了这个文件夹，即使输入没变，也不会触发还原（这个可以看看，实际基本上会避免这种情况）
 
 ---
 
 ## 发布流程说明（Changesets + 手动发布）
 
-下面是一套典型的 libs 使用 Changesets 完成版本管理、日志生成、Git Tag 和 npm 发布的流程示例
+下面是一套典型的 `libs` 使用 `Changesets` 完成版本管理、日志生成、*Git Tag* 和 `npm` 发布的流程示例
 
 ### 1. 构建产物
 > 在发布前，先把所有包的产物编译到 `dist/`（或其它输出目录），确保发布的代码是最新的
@@ -208,11 +204,15 @@ pnpm turbo run build    # 默认命令，可定制，这里仅做示意
 ```
 
 ### 2. 生成变更集（Changeset）
-> 交互式地选择要发布的包、升级级别（patch/minor/major）和变更描述
+> 交互式地选择要发布的包、*升级级别（patch/minor/major）*和变更描述（这个可以考虑想办法让 ai 做，TODO）
+> 注意 ↑↑↑ 说的选择，是选择本次修改的包，`changeset` 帮忙做其他关联包的升级检测
+> 默认一般推荐 `workspace:*`，这代表所有关联包都会调整并发布，这个是比较好的实践，也有 *~、^* 的方式，不展开讨论了
 > 变更集文件会记录在 `.changeset/` 目录下
 ```bash
 pnpm changeset
 ```
+
+
 
 ### 3. 提交代码 + 变更集
 > 把 `.changeset` 下的新文件以及相关源码/配置一起提交到分支：
@@ -229,7 +229,8 @@ pnpm changeset version
 ```
 - **自动更新** 各包 `package.json` 的版本号  
 - **自动合并/新增** 根目录 `CHANGELOG.md`  
-- 需要**手动**提交上述改动并 **打版本 Tag**（如 `v1.2.0`）
+- 需要**手动**提交上述改动
+- *版本 tag* 是自动打的，会根据子包名称和版本打，但是推送动作，需要*手动 push*
 
 ### 5. 推送代码与 Tag
 ```bash
@@ -244,18 +245,12 @@ pnpm changeset publish
 ```
 - 对有变更的包依次执行 `npm publish`  
 - 发布完毕后，npm 库即可看到新版本
-
-#### 小贴士
-- `pnpm changeset version` 默认会在 commit 中打 Tag，无需你手动再次 `git tag`
-- 如果 CI 里要全自动，通常在合并到主分支后，流水线依次执行 `build → changeset version → push → changeset publish` 即可
-- 保持 commit message 和变更描述清晰简洁，有助于生成高质量的 CHANGELOG
+需要注意的是，需要本地运行 `npm login` 完成登陆，并且确保 `publishConfig` 正确。如果有**部分包发布失败**，也没关系，调整后可以提交 *git commit*（不是功能的调整，所以不需要重新走流程），完成重新发布（`changeset` 会查询 `npm view 包名称 version`，来决定补发布动作）
 
 ---
 
 ## TODO
-
-1. format 里关于 turbo 的部分
-3. 测试用例
-4. turbo 的 "lint": {}, lint 任务检查，还没搞
-5. git cicd
-6. changelog
+1. test case
+2. turbo 的 "lint": {}, lint 任务检查，还没搞
+3. git cicd
+4. ai changelog
