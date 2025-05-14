@@ -36,7 +36,8 @@
 
 ### 通用库配置 (`library.json`)
 
-独立的完整配置，专为开发 JavaScript/TypeScript 库设计，支持 Node.js 和 ESM 环境，适合创建发布到 npm 的包。这个配置不继承其他配置，包含了所有必要的设置。*采用了保守的转化策略，不同于上面的都去追求最新的版本（因为项目的使用往往都有其他转化器的兜底，而 libs 没有）*。
+> 独立的完整配置，专为开发 JavaScript/TypeScript 库设计，支持 Node.js 和 ESM 环境，适合创建发布到 npm 的包。这个配置不继承其他配置，包含了所有必要的设置。*采用了保守的转化策略，不同于上面的都去追求最新的版本（因为项目的使用往往都有其他转化器的兜底，而 libs 没有）*
+> `"moduleResolution": "node"`，此处强制指定了，理论上不需要，可以从 `target` 推出 `module`，进而推出 `moduleResolution`
 
 ```json
 {
