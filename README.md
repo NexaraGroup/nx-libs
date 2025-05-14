@@ -154,13 +154,20 @@ module.exports = {
   生成 `*.d.ts` 文件，`tsc` 会读这个配置，但是主流的打包工具都**不会**读这个配置  
   举例来说：`"build": "tsup src/index.ts --format esm,cjs --dts"`，`tsup` 需要显示的申明 `--dts`，而不会去读 `declaration`  
 
-- "module": "NodeNext"  
-  这个有点类似于自动选择  
-    1. 如果是 `*.mts`，则输出成 `*.mjs`
-    2. 若果是 `*.cts` ，则输出 `*.cjs`
-    3. 如果单纯是 `*.ts`，则看 `package.json` 里的配置，默认是 `commonjs`
+- ~"module": "NodeNext"~
+  ~这个有点类似于自动选择~
+    ~1. 如果是 `*.mts`，则输出成 `*.mjs`~
+    ~2. 若果是 `*.cts` ，则输出 `*.cjs`~
+    ~3. 如果单纯是 `*.ts`，则看 `package.json` 里的配置，默认是 `commonjs`~
+    ~4. 另外，这个其实适合有混合 `commonjs` 和 `es module` 的场景~
+    ~现代的 `libs` 一般都是需要指定**双格式输出**~
+`nodenext` 是需要补后缀名的。另外：
+> 双输出的包，`package.json` 的 *"type": "module"*, 这个**不要**写，通过 `export` 等字段来引导
+> `tsconfig` 里的 `module` 也不用写，通过写 `target`，来自动命中通过后续具体的如 `tsup` 等打包器来处理双输出
 
-    现代的 `libs` 一般都是需要指定**双格式输出**
+- "lib": ["ESNext"]
+  这个，我看下来，我还是准备用保留的 es2019，因为 `target` 实际只转化**语法**，如果 `esNext` 提示了有最新的 api，但是实际环境又没有，这个就很糟糕  
+  大部分都项目都不会主动 *include node_modules* 的文件，来做转化，所以这个行为是很不安全的。
 
 ### 关于 dayjs 和 momentjs
 
@@ -261,6 +268,7 @@ coverage: {
 2. turbo 的 "lint": {}, lint 任务检查，还没搞
 3. git cicd
 4. ai changelog
+5. cicd 官网
 
 ---
 ## Git提交规范

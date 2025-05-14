@@ -2,7 +2,7 @@ import BigNumber from 'big.js';
 
 export interface FormatNumberOptions {
 	/**
-	 * 是否去除尾部的0
+	 * 是否去除尾部的 0
 	 * @default true
 	 */
 	removeTrailingZeros?: boolean;
@@ -67,25 +67,27 @@ function formatValidNumber(
 	removeTrailingZeros: boolean,
 	addThousandsSeparator: boolean,
 ): string {
+	let bigValue: BigNumber;
 	try {
-		// 使用Big.js处理数字，避免浮点数精度问题
-		const bigValue = new BigNumber(value);
-		let formatted = bigValue.toString();
-
-		// 去除尾部的0
-		if (removeTrailingZeros && formatted.includes('.')) {
-			formatted = formatted.replace(/\.?0+$/, '');
-		}
-
-		// 添加千分位分隔符
-		if (addThousandsSeparator) {
-			const parts = formatted.split('.') ?? [];
-			parts[0] = (parts[0] ?? '').replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-			formatted = parts.join('.');
-		}
-
-		return formatted;
+		// 使用 Big.js 处理数字，避免浮点数精度问题
+		bigValue = new BigNumber(value);
 	} catch (error) {
 		return '-';
 	}
+
+	let formatted = bigValue.toString();
+
+	// 去除尾部的 0，去尾 0 和 . 是有直接逻辑关系的
+	if (removeTrailingZeros && formatted.includes('.')) {
+		formatted = formatted.replace(/\.?0+$/, '');
+	}
+
+	// 添加千分位分隔符
+	if (addThousandsSeparator) {
+		const parts = formatted.split('.') ?? [];
+		parts[0] = (parts[0] ?? '').replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+		formatted = parts.join('.');
+	}
+
+	return formatted;
 }

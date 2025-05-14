@@ -35,6 +35,7 @@ module.exports = {
 		'@typescript-eslint/explicit-module-boundary-types': 'off',
 		'@typescript-eslint/no-non-null-assertion': 'off',
 		'@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+		'@typescript-eslint/ban-ts-comment': 'warn',
 
 		// 导入排序规则
 		'import/first': 'error',
