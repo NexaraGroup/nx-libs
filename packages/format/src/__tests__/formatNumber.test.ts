@@ -1,6 +1,5 @@
+import { formatNumber } from '@nxlibs/format';
 import { describe, expect, it } from 'vitest';
-
-import { formatNumber } from './formatNumber';
 
 describe('formatNumber', () => {
 	it('能正确格式化整数并添加千分位', () => {

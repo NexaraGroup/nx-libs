@@ -1,6 +1,5 @@
+import * as format from '@nxlibs/format';
 import { describe, expect, it } from 'vitest';
-
-import * as format from './index';
 
 describe('index.ts 导出聚合', () => {
 	it('应正确导出 formatDate', () => {

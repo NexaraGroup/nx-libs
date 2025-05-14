@@ -1,6 +1,5 @@
+import { formatDate } from '@nxlibs/format';
 import { describe, expect, it } from 'vitest';
-
-import { formatDate } from './formatDate';
 
 describe('formatDate', () => {
 	it('能正确格式化 Date 对象', () => {
