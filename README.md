@@ -264,7 +264,6 @@ coverage: {
 ---
 
 ## TODO
-1. test case
 2. turbo 的 "lint": {}, lint 任务检查，还没搞
 3. git cicd
 4. ai changelog
