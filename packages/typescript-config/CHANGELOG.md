@@ -1,5 +1,11 @@
 # @nxlibs/typescript-config
 
+## 1.0.3
+
+### Patch Changes
+
+- 8605717: 修改了 tsconfig 的内部包名称
+
 ## 1.0.2
 
 ### Patch Changes
