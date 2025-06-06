@@ -14,13 +14,13 @@
 }
 ```
 
-### React 库配置 (`react-library.json`)
+### React 库配置 (`react.json`)
 
 为 React 库和应用程序定制的配置，扩展了基础配置并添加了 React 特定的设置。
 
 ```json
 {
-	"extends": "@repo/typescript-config/react-library.json"
+	"extends": "@repo/typescript-config/react.json"
 }
 ```
 
@@ -71,7 +71,7 @@ React 项目示例：
 
 ```json
 {
-	"extends": "@repo/typescript-config/react-library.json",
+	"extends": "@repo/typescript-config/react.json",
 	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {
