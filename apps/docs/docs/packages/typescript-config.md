@@ -6,6 +6,9 @@ sidebar_position: 1
 
 `@nxlibs/typescript-config` 提供了一组优化的 TypeScript 配置，简化项目设置并统一代码规范。
 
+[![npm version](https://img.shields.io/npm/v/@nxlibs/typescript-config)](https://www.npmjs.com/package/@nxlibs/typescript-config)
+[![npm downloads](https://img.shields.io/npm/dm/@nxlibs/typescript-config)](https://www.npmjs.com/package/@nxlibs/typescript-config)
+
 ## 安装
 
 ```bash
@@ -31,13 +34,13 @@ yarn add -D @nxlibs/typescript-config
 }
 ```
 
-### React 库配置 (`react-library.json`)
+### React 配置 (`react.json`)
 
 为 React 库和应用程序定制的配置，扩展了基础配置并添加了 React 特定的设置。
 
 ```json
 {
-	"extends": "@nxlibs/typescript-config/react-library.json"
+	"extends": "@nxlibs/typescript-config/react.json"
 }
 ```
 
@@ -87,7 +90,7 @@ React 项目示例：
 
 ```json
 {
-	"extends": "@nxlibs/typescript-config/react-library.json",
+	"extends": "@nxlibs/typescript-config/react.json",
 	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {
@@ -191,3 +194,43 @@ TypeScript 库示例：
 
 - [GitHub仓库](https://github.com/NexaraGroup/nx-libs)
 - [TypeScript官方文档](https://www.typescriptlang.org/docs/)
+
+---
+
+## 📋 更新历史
+
+<details>
+<summary>点击查看完整更新记录</summary>
+
+### 1.0.3 (2024)
+
+**Patch Changes**
+
+- 🏷️ **包名称修正** - 修改了 tsconfig 的内部包名称，提升一致性
+
+### 1.0.2 (2024)
+
+**Patch Changes**
+
+- 🗂️ **配置优化** - 移除 base 配置中的 dist 排除路径
+- 🚀 **Next.js 配置改进** - 去除 next 默认的别名及相关路径配置，减少配置复杂度
+
+### 1.0.1 (2024)
+
+**Patch Changes**
+
+- 🔧 **配置调整** - 调整部分 TypeScript 配置项
+- 📝 **文档完善** - 补充和完善 README 文档说明
+- 🎯 **最佳实践** - 遵循现代 TypeScript 最佳实践
+
+### 1.0.0 (2024)
+
+**Major Changes**
+
+- 🎉 **首次发布** - 初始版本发布
+- 🔧 **多种配置** - 提供 base、react、nextjs、library 四种配置
+- 🎯 **现代目标** - 使用 ES2022 作为编译目标
+- 🛡️ **严格检查** - 启用 strict 模式和增强类型安全
+- ⚡ **性能优化** - 启用增量构建和 skipLibCheck
+
+</details>

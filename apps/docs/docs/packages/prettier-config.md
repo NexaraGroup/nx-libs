@@ -6,6 +6,9 @@ sidebar_position: 3
 
 `@nxlibs/prettier-config` 提供共享的 Prettier 配置，帮助团队保持一致的代码格式风格。
 
+[![npm version](https://img.shields.io/npm/v/@nxlibs/prettier-config)](https://www.npmjs.com/package/@nxlibs/prettier-config)
+[![npm downloads](https://img.shields.io/npm/dm/@nxlibs/prettier-config)](https://www.npmjs.com/package/@nxlibs/prettier-config)
+
 ## 安装
 
 ```bash
@@ -128,3 +131,22 @@ module.exports = {
 
 - [GitHub仓库](https://github.com/NexaraGroup/nx-libs)
 - [Prettier官方文档](https://prettier.io/docs/en/)
+
+---
+
+## 📋 更新历史
+
+<details>
+<summary>点击查看完整更新记录</summary>
+
+### 1.0.0 (2024)
+
+**Major Changes**
+
+- 🎉 **首次发布** - 初始版本发布
+- 🎨 **代码格式化** - 提供统一的代码格式化规则
+- 📦 **插件集成** - 包含导入排序和 package.json 格式化插件
+- ⚙️ **灵活配置** - 支持项目级别的自定义覆盖
+- 🔧 **编辑器集成** - 与主流编辑器无缝集成
+
+</details>

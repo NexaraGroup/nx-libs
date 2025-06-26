@@ -10,8 +10,9 @@ sidebar_position: 2
 
 ### 环境要求
 
-- Node.js 14.x 或更高版本
+- Node.js 16.x 或更高版本
 - pnpm 8.x 或更高版本 (我们使用 pnpm 作为包管理器)
+- Git (用于版本控制)
 
 ### 获取代码
 
@@ -28,17 +29,17 @@ pnpm install
 
 ### 分支策略
 
-- `main` - 稳定分支，用于发布
-- `develop` - 开发分支，所有功能开发都基于此分支
-- `feature/*` - 功能分支，用于开发新功能
-- `fix/*` - 修复分支，用于修复 bug
+- `main` - 稳定分支，用于发布 (当前活跃分支)
+- `feature/*` - 功能分支，从 `main` 创建，用于开发新功能
+- `fix/*` - 修复分支，从 `main` 创建，用于修复 bug
+- `docs/*` - 文档分支，用于文档更新
 
 ### 开发流程
 
-1. 从 `develop` 分支创建新分支
+1. 从 `main` 分支创建新分支
 
 ```bash
-git checkout develop
+git checkout main
 git pull
 git checkout -b feature/your-feature-name
 ```
@@ -46,14 +47,23 @@ git checkout -b feature/your-feature-name
 2. 进行开发和测试
 
 ```bash
-# 启动开发服务
-pnpm dev
+# 安装依赖（如需要）
+pnpm install
+
+# 构建所有包
+pnpm build
 
 # 运行测试
 pnpm test
 
-# 运行 lint 检查
+# 运行 lint 检查  
 pnpm lint
+
+# 运行类型检查
+pnpm typecheck
+
+# 启动文档开发服务器（如果修改文档）
+cd apps/docs && pnpm dev
 ```
 
 3. 提交修改
@@ -92,39 +102,156 @@ docs: 更新 README 文件的安装说明
 
 ## 发布流程
 
-1. 确保所有测试通过
-2. 更新 CHANGELOG.md
-3. 更新版本号
-4. 创建发布标签
-5. 发布到 npm
+我们使用 [Changesets](https://github.com/changesets/changesets) 进行版本管理和发布：
+
+1. **生成 changeset**
+```bash
+pnpm changeset
+```
+
+2. **版本更新和 CHANGELOG 生成**
+```bash
+pnpm changeset version
+```
+
+3. **发布到 npm**
+```bash
+pnpm changeset publish
+```
+
+### 发布前检查清单
+
+- [ ] 所有测试通过 (`pnpm test`)
+- [ ] 类型检查通过 (`pnpm typecheck`) 
+- [ ] 代码规范检查通过 (`pnpm lint`)
+- [ ] 构建成功 (`pnpm build`)
+- [ ] 文档已更新
+- [ ] Changeset 已创建
 
 ## 代码规范
 
-- 遵循 TypeScript 最佳实践
-- 所有代码必须通过 ESLint 和 Prettier 检查
-- 所有新功能必须包含单元测试
-- 保持向后兼容性
-- 遵循语义化版本控制原则
+- **TypeScript 优先** - 所有代码使用 TypeScript 编写
+- **严格类型检查** - 启用 TypeScript 严格模式
+- **代码风格** - 必须通过 ESLint 和 Prettier 检查
+- **测试覆盖** - 核心功能必须包含单元测试
+- **向后兼容** - 避免破坏性变更，遵循语义化版本
+- **提交规范** - 遵循 Conventional Commits 规范
+- **文档同步** - 代码变更时同步更新相关文档
 
 ## 常见问题
 
 ### 如何调试测试？
 
-可以使用 `--inspect-brk` 参数启动 Node.js 调试器：
+我们使用 Vitest 作为测试框架，可以这样调试：
 
 ```bash
-node --inspect-brk ./node_modules/.bin/jest --runInBand
+# 调试单个测试文件
+pnpm test --reporter=verbose formatNumber.test.ts
+
+# 在监听模式下运行测试
+pnpm test --watch
+
+# 生成覆盖率报告
+pnpm test --coverage
 ```
 
 ### 如何在本地测试包？
 
-可以使用 `pnpm link` 来本地测试包：
+可以使用多种方式本地测试包：
+
+#### 方法 1: 使用 pnpm link
 
 ```bash
-# 在包目录下
+# 在包目录下创建全局链接
 cd packages/format
 pnpm link --global
 
-# 在测试项目中
+# 在测试项目中使用链接
+cd /path/to/test-project
 pnpm link --global @nxlibs/format
 ```
+
+#### 方法 2: 使用 pnpm pack 和本地安装
+
+```bash
+# 在包目录下打包
+cd packages/format
+pnpm pack
+
+# 在测试项目中安装本地包
+cd /path/to/test-project
+pnpm add /path/to/nx-libs/packages/format/nxlibs-format-1.0.1.tgz
+```
+
+#### 方法 3: 使用相对路径 (推荐)
+
+```bash
+# 直接在测试项目中使用文件路径
+cd /path/to/test-project
+pnpm add file:../nx-libs/packages/format
+```
+
+### 常见开发问题
+
+#### 类型定义问题
+
+如果遇到类型定义问题：
+
+```bash
+# 重新生成类型定义
+pnpm build
+
+# 检查 TypeScript 配置
+pnpm typecheck
+```
+
+#### 依赖版本冲突
+
+```bash
+# 清理依赖重新安装
+rm -rf node_modules pnpm-lock.yaml
+pnpm install
+
+# 查看依赖树
+pnpm ls --depth=2
+```
+
+## 💡 开发技巧
+
+### 使用 Turbo 加速开发
+
+```bash
+# 并行构建所有包
+pnpm turbo run build
+
+# 只构建变更的包
+pnpm turbo run build --filter=...[HEAD^1]
+
+# 强制重新构建（忽略缓存）
+pnpm turbo run build --force
+```
+
+### 包之间的依赖开发
+
+如果你在开发一个依赖其他本地包的包：
+
+```bash
+# 在根目录安装所有依赖
+pnpm install
+
+# 构建依赖包
+pnpm turbo run build --filter=@nxlibs/format
+
+# 开发模式（自动重构建）
+pnpm turbo run dev --filter=@nxlibs/format --parallel
+```
+
+## 📚 学习资源
+
+- [Conventional Commits](https://www.conventionalcommits.org/)
+- [Changesets 文档](https://github.com/changesets/changesets)
+- [Turbo 文档](https://turbo.build/)
+- [pnpm 工作区](https://pnpm.io/workspaces)
+- [TypeScript 手册](https://www.typescriptlang.org/docs/)
+
+感谢你的贡献！🎉

@@ -6,6 +6,9 @@ sidebar_position: 2
 
 `@nxlibs/eslint-config` 提供了一套预配置的 ESLint 规则，帮助团队统一代码规范，减少配置开销。
 
+[![npm version](https://img.shields.io/npm/v/@nxlibs/eslint-config)](https://www.npmjs.com/package/@nxlibs/eslint-config)
+[![npm downloads](https://img.shields.io/npm/dm/@nxlibs/eslint-config)](https://www.npmjs.com/package/@nxlibs/eslint-config)
+
 ## 安装
 
 ```bash
@@ -21,11 +24,12 @@ yarn add -D @nxlibs/eslint-config eslint
 
 ## 特性
 
-- 分层设计：基础、React和Next.js三层配置
-- TypeScript支持：针对TypeScript项目优化
-- 导入排序：自动组织和格式化导入语句
-- 与Prettier兼容：避免与代码格式化工具冲突
-- 遵循最新的React和Next.js最佳实践
+- **分层设计** - 基础、React和Next.js三层配置
+- **TypeScript支持** - 针对TypeScript项目优化
+- **导入排序** - 自动组织和格式化导入语句
+- **与Prettier兼容** - 避免与代码格式化工具冲突
+- **最新版本支持** - 支持 Next.js 15.x 和最新的 TypeScript 特性
+- **遵循最佳实践** - 遵循最新的React和Next.js最佳实践
 
 ## 使用方法
 
@@ -152,3 +156,38 @@ module.exports = {
 
 - [GitHub仓库](https://github.com/NexaraGroup/nx-libs)
 - [ESLint官方文档](https://eslint.org/docs/latest/)
+
+---
+
+## 📋 更新历史
+
+<details>
+<summary>点击查看完整更新记录</summary>
+
+### 1.0.2 (2024)
+
+**Patch Changes**
+
+- ⬆️ **Next.js ESLint 升级** - 将 `eslint-config-next` 从 14.x 升级到 15.x
+- 🎯 **TypeScript 集成增强** - 新增 `next/typescript` 相关的约束配置
+- 🔧 **规则优化** - 增加规则限制，进一步提升代码规范性
+
+### 1.0.1 (2024)
+
+**Patch Changes**
+
+- 🔧 **规则增强** - 增加规则限制，提升代码规范性
+- 📝 **配置优化** - 适配 workspace 下的 ESLint 分组配置
+- 🎯 **最佳实践** - 遵循最新的 React 和 Next.js 最佳实践
+
+### 1.0.0 (2024)
+
+**Major Changes**
+
+- 🎉 **首次发布** - 初始版本发布
+- 🔧 **分层设计** - 基础、React、Next.js 三层配置
+- 📦 **TypeScript 支持** - 针对 TypeScript 项目优化
+- 🔄 **导入排序** - 自动组织和格式化导入语句
+- 🎨 **Prettier 兼容** - 避免与代码格式化工具冲突
+
+</details>

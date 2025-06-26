@@ -20,7 +20,7 @@ module.exports = {
 		{
 			type: 'category',
 			label: '使用指南',
-			items: ['guides/monorepo-structure', 'guides/contributing'],
+			items: ['guides/monorepo-structure', 'guides/contributing', 'guides/quality-assurance'],
 		},
 		{
 			type: 'category',
