@@ -1,5 +1,11 @@
 # @nxlibs/format
 
+## 1.0.2
+
+### Patch Changes
+
+- 7f3a652: 增加 nextjs 相关的 ts 配置
+
 ## 1.0.1
 
 ### Patch Changes

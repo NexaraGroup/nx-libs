@@ -1,5 +1,11 @@
 # @nxlibs/typescript-config
 
+## 1.1.0
+
+### Minor Changes
+
+- 7f3a652: 增加 nextjs 相关的 ts 配置
+
 ## 1.0.3
 
 ### Patch Changes
