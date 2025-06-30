@@ -29,6 +29,7 @@ git push origin <feature-branch>
 
 ### 4. 版本 bump、生成 CHANGELOG 和打 Git Tag
 > 在主分支或 CI 上，执行：
+> @update，发现如果升级的包被其他包用作的是 devDep，则不会去关联升级其他包（这个行为有一定合理性），这个时候，向 patch 的话，就单独额外选择吧
 ```bash
 pnpm changeset version
 ```
