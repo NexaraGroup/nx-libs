@@ -153,6 +153,9 @@ importers:
 
   packages/typescript-config:
     dependencies:
+      '@tsconfig/next':
+        specifier: ^2.0.3
+        version: 2.0.3
       typescript:
         specifier: '>=5.0.0'
         version: 5.5.4
@@ -3906,6 +3909,10 @@ packages:
   /@trysound/sax@0.2.0:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
     engines: {node: '>=10.13.0'}
+    dev: false
+
+  /@tsconfig/next@2.0.3:
+    resolution: {integrity: sha512-b4aKvmdWnv9aUy+NStUFlefirk3SItW20OJtbi5/ue9oMRaQtUYbN5zsr7OmV3rlx6Gp6h7A82gPoCXhrNGVPQ==}
     dev: false
 
   /@tybys/wasm-util@0.9.0:

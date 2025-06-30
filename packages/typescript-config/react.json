@@ -4,7 +4,6 @@
 	"extends": "./base.json",
 	"compilerOptions": {
 		"jsx": "react-jsx",
-		"allowImportingTsExtensions": true,
-		"types": ["react", "react-dom"]
+		"allowImportingTsExtensions": true
 	}
 }

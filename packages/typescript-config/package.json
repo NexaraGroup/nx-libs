@@ -3,6 +3,7 @@
 	"version": "1.0.3",
 	"license": "MIT",
 	"peerDependencies": {
+		"@tsconfig/next": "^2.0.3",
 		"typescript": ">=5.0.0"
 	},
 	"publishConfig": {

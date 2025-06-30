@@ -56,7 +56,7 @@ pnpm build
 # 运行测试
 pnpm test
 
-# 运行 lint 检查  
+# 运行 lint 检查
 pnpm lint
 
 # 运行类型检查

@@ -23,6 +23,5 @@
 		"noImplicitReturns": true,
 		"noFallthroughCasesInSwitch": true,
 		"useUnknownInCatchVariables": true
-	},
-	"exclude": ["node_modules"]
+	}
 }
