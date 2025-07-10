@@ -26,9 +26,6 @@ module.exports = {
 	// 行尾使用LF
 	endOfLine: 'lf',
 
-	// 文件末尾插入空行
-	insertFinalNewline: true,
-
 	// 导入排序规则 - 与ESLint的import/order对应
 	importOrder: [
 		'^node:', // Node.js内置模块 (对应builtin)
