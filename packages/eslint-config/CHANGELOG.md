@@ -1,5 +1,11 @@
 # @nxlibs/eslint-config
 
+## 1.0.3
+
+### Patch Changes
+
+- 1fcc9c3: 调整 nextjs 的 eslint 配置
+
 ## 1.0.2
 
 ### Patch Changes
