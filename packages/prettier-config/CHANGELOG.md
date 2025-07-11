@@ -1,5 +1,11 @@
 # @nxlibs/prettier-config
 
+## 1.0.2
+
+### Patch Changes
+
+- bbf53ea: 修改依赖关系
+
 ## 1.0.1
 
 ### Patch Changes
